@@ -1,0 +1,116 @@
+.process-section {
+    background-color: var(--primary-green);
+    padding: 3rem 2rem;
+    color: var(--text-dark);
+    border-bottom: 2px solid white;
+}
+
+.process-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+    gap: 2rem;
+}
+
+.process-text {
+    max-width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.process-text h2 {
+    font-size: 3.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.process-text p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #222;
+    margin-top: 1rem;
+}
+
+.process-image img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.process-steps {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.process-step {
+    background-color: var(--primary-yellow);
+    color: var(--text-dark);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    flex: 1 1 45%;
+    max-width: 48%;
+    min-width: 260px;
+    text-align: left;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: default;
+}
+
+.process-step:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.process-step h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.process-step p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+.process-image,
+.process-text {
+    max-width: 600px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .process-top {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .process-text {
+        text-align: left;
+    }
+}
+
+@media (max-width: 900px) {
+    .process-step {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    .process-steps {
+        gap: 1.2rem;
+    }
+}

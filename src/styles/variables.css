@@ -1,7 +1,46 @@
 :root {
+    /* Couleurs principales */
     --primary-green: #A2DB91;
+    --primary-green-dark: #8fc97a; /* version foncée pour hover */
     --primary-yellow: #e3fb8a;
     --background-beige: #F0F0F0;
-    --text-dark: #111;
     --white: #FFFFFF;
+    --black: #000000;
+    --text-dark: #111;
+    --text-light: #f8f8f8;
+
+    /* Couleurs secondaires */
+    --secondary: #f5e960;
+    --accent: #ffb347;
+
+    /* Polices */
+    --font-main: 'Montserrat', Arial, sans-serif;
+    --font-title: 'Montserrat', Arial, sans-serif;
+
+    /* Tailles de police */
+    --font-size-title: 2.2rem;
+    --font-size-subtitle: 1.5rem;
+    --font-size-text: 1rem;
+    --font-size-small: 0.9rem;
+
+    /* Espacements */
+    --spacing-xs: 4px;
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 32px;
+    --spacing-xl: 64px;
+
+    /* Rayons de bordure */
+    --radius-s: 4px;
+    --radius-m: 8px;
+    --radius-l: 16px;
+
+    /* Ombres */
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+
+}
+
+body {
+    font-family: var(--font-main);
 }
