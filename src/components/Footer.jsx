@@ -1,5 +1,5 @@
 import React from 'react';
-import hamac from '../assets/bonhommes/hamac.png'; 
+/*import hamac from '../assets/bonhommes/hamac.png'; */
 import ravi from '../assets/bonhommes/raviblanc.png'; // image décorative principale
 import '../styles/Footer.css';
 
@@ -27,13 +27,14 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-center">
-      <img src={ravi} alt="Décoration" className="footer-deco-inline" />
+      {/* <img src={ravi} alt="Décoration" className="footer-deco-inline" /> */}
         <span className="footer-copyright">
           © 2025 CoComptoir. Tous droits réservés
         </span>
       </div>
       <div className="footer-right">
-        <img src={hamac} alt="Logo" className="footer-hamac" />
+        {/* <img src={hamac} alt="Logo" className="footer-hamac" /> */}
+        <img src={ravi} alt="Décoration" className="footer-hamac" />
       </div>
     </footer>
   );

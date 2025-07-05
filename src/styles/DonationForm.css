@@ -1,7 +1,8 @@
 .donation-form-section {
-  background: var(--background-beige);
+  background: var(--primary-green);
   padding: 2.5rem 2rem 3rem 2rem;
   text-align: center;
+ 
 }
 
 .donation-form-section h2 {
@@ -12,7 +13,7 @@
 }
 
 .donation-form {
-  max-width: 420px;
+  max-width: 100%;
   margin: 0 auto;
   background: #fff;
   border-radius: 12px;
@@ -45,6 +46,17 @@
   color: var(--text-dark);
 }
 
+.donation-form input[type="tel"] {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+  background: #f7f7f7;
+  color: var(--text-dark);
+}
+
 .donation-form fieldset {
   border: none;
   padding: 0;
@@ -57,7 +69,6 @@
 
 .donation-form legend {
   font-weight: 600;
-  color: var(--primary-green-dark);
   margin-bottom: 0.3rem;
 }
 
@@ -89,6 +100,30 @@
   font-size: 1.1rem;
 }
 
+.form-row {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.form-row label {
+  flex: 1 1 0;
+}
+
+.form-error {
+  color: #d32f2f;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  margin-top: -0.5rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 700px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
 @media (max-width: 600px) {
   .donation-form {
     padding: 1.2rem 0.5rem;
@@ -96,4 +131,100 @@
   .donation-form-section {
     padding: 1.5rem 0.5rem 2rem 0.5rem;
   }
+}
+
+.donation-type-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.donation-type-label {
+  min-width: 170px;
+  color: var(--text-dark);
+  text-align: left;
+}
+
+.donation-checkbox-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.donation-checkbox-row label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 100;
+  color: var(--text-dark);
+  gap: 0.5rem;
+}
+
+.donation-checkbox-row input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--primary-green, #4caf50);
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  transition: border 0.2s, box-shadow 0.2s;
+  position: relative;
+  margin-left: 0.4rem;
+  margin-right: 0;
+  outline: none;
+  vertical-align: middle;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.donation-checkbox-row input[type="checkbox"]:hover {
+  border-color: var(--primary-green-dark, #388e3c);
+  box-shadow: 0 0 0 2px rgba(76,175,80,0.15);
+}
+
+.donation-checkbox-row input[type="checkbox"]:checked {
+  background: var(--primary-green, #4caf50);
+  border-color: var(--primary-green-dark, #388e3c);
+}
+
+/* Suppression de la coche blanche */
+.donation-checkbox-row input[type="checkbox"]:checked::after {
+  content: none;
+}
+
+.donation-checkbox-row input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 2px var(--primary-green, #4caf50);
+}
+
+@media (max-width: 600px) {
+  .donation-checkbox-row {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+}
+
+.donation-form textarea {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  background: #f7f7f7;
+  color: var(--text-dark);
+  resize: vertical;
+  min-height: 60px;
+  max-height: 200px;
 } 
+
+.donation-form-desc {
+  color: var(--text-dark);
+  font-size: 1.08rem;
+  margin-bottom: 1.5rem;
+  margin-top: -1rem;
+  text-align: center;
+  opacity: 0.85;
+} 
+

@@ -2,6 +2,7 @@
   background: var(--background-beige);
   padding: 3rem 2rem 2rem 2rem;
   text-align: center;
+  border-bottom: 1.5px solid #222;
 }
 
 .donation-types-section h2 {
@@ -18,11 +19,25 @@
   flex-wrap: wrap;
 }
 
+.donation-type-img {
+  width: 100%;
+  max-width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 10px 10px 0 0;
+  background: #f7f7f7;
+  margin-bottom: 1rem;
+  display: block;
+}
+
 .donation-type-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   background: #f9f9f9;
   border-radius: 12px;
   padding: 2rem 1.5rem;
-  max-width: 350px;
+  max-width: 420px;
   min-width: 220px;
   flex: 1 1 220px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -37,10 +52,11 @@
 }
 
 .donation-type-card h3 {
-  color: var(--primary-green-dark);
+  color: var(--text-dark);
   font-size: 1.3rem;
   margin-bottom: 0.7rem;
   font-weight: 700;
+  text-align: center;
 }
 
 .donation-type-card p {
@@ -56,7 +72,7 @@
     gap: 1.2rem;
   }
   .donation-type-card {
-    max-width: 95%;
+    max-width: 98vw;
     min-width: 0;
   }
 } 
