@@ -1,8 +1,8 @@
 import React from 'react';
-import '../styles/ActionSection.css';
-import bikeIcon from '../assets/bonhommes/bike.png';
-import canIcon from '../assets/bonhommes/can.png';
-import tableIcon from '../assets/bonhommes/table.png';
+import '../../styles/Home/ActionSection.css';
+import bikeIcon from '../../assets/bonhommes/bike.png';
+import canIcon from '../../assets/bonhommes/can.png';
+import tableIcon from '../../assets/bonhommes/table.png';
 import { Link } from 'react-router-dom';
 
 const actions = [

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Navbar.css';
-import logo from '../assets/logo.png';
-import tablebonhomme from '../assets/bonhommes/tablebonhomme.png'; // Import the image you uploaded
+import '../../styles/General/Navbar.css';
+import logo from '../../assets/logo.png';
+import tablebonhomme from '../../assets/bonhommes/tablebonhomme.png'; // Import the image you uploaded
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);

@@ -1,8 +1,9 @@
 import React from 'react';
-import '../styles/DonationTypes.css';
-import vetementsImg from '../assets/bonhommes/vetement.png';
-import nourritureImg from '../assets/bonhommes/nourriture.png';
-import hygieneImg from '../assets/bonhommes/hygiene.png';
+import '../../styles/Dons/DonationTypes.css';
+
+import vetementsImg from '../../assets/bonhommes/vetement.png';
+import nourritureImg from '../../assets/bonhommes/nourriture.png';
+import hygieneImg from '../../assets/bonhommes/hygiene.png';
 
 export default function DonationTypes() {
   return (

@@ -5,13 +5,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import '../styles/HeroSection.css';
+import '../../styles/Home/HeroSection.css';
 
-import photo1 from '../assets/images/local2.png';
-import photo2 from '../assets/images/local2.png';
-import photo3 from '../assets/images/local3.png';
+import photo1 from '../../assets/images/local2.png';
+import photo2 from '../../assets/images/local2.png';
+import photo3 from '../../assets/images/local3.png';
 
-import bonhommeRavi from '../assets/bonhommes/bonhommeravi.png';
+import bonhommeRavi from '../../assets/bonhommes/bonhommeravi.png';
 
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 

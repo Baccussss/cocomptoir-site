@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
-import '../styles/DonationForm.css';
+import '../../styles/Dons/DonationForm.css'
 
 export default function DonationForm() {
   const [form, setForm] = useState({

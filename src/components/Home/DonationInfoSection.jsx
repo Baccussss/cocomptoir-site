@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/DonationInfoSection.css'; // Assurez-vous d'avoir ce fichier CSS pour le style;
-import Armoire from '../assets/bonhommes/armoire.png'; // adapte le chemin
+import '../../styles/Home/DonationInfoSection.css'; // Assurez-vous d'avoir ce fichier CSS pour le style;
+import Armoire from '../../assets/bonhommes/armoire.png'; // adapte le chemin
 
 const steps = [
     {

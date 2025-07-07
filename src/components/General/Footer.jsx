@@ -1,7 +1,7 @@
 import React from 'react';
 /*import hamac from '../assets/bonhommes/hamac.png'; */
-import ravi from '../assets/bonhommes/raviblanc.png'; // image décorative principale
-import '../styles/Footer.css';
+import ravi from '../../assets/bonhommes/raviblanc.png'; // image décorative principale
+import '../../styles/General/Footer.css';
 
 export default function Footer() {
   return (
