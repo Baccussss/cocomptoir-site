@@ -2,7 +2,10 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Navbar from './components/General/Navbar';
 import Home from './pages/Home';
 import Dons from './pages/Dons';
+import APropos from './pages/A_Propos';
+import Local from './pages/Local';
 import Footer from './components/General/Footer';
+import Benevole from './pages/Benevole';
 
 function App() {
   return (
@@ -11,7 +14,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/donate" element={<Dons />} />
-        {/* Ajoute d'autres routes ici si besoin */}
+        <Route path="/about" element={<APropos />} />
+        <Route path="/local" element={<Local />} />
+        <Route path="/benevole" element={<Benevole />} />
+        {/* Ajouts d'autres routes ici si besoin */}
       </Routes>
       <Footer />
     </Router>

@@ -29,6 +29,21 @@ export default function DonationTypes() {
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime odit molestiae ad libero quia dolorem, itaque veniam amet quos nesciunt, eligendi corrupti reiciendis nam aperiam nihil laborum officiis ut facilis.</p>
         </div>
       </div>
+      <div className="donation-financial-info">
+        <div className="donation-financial-row">
+          <p className="donation-financial-text">
+            Si vous souhaitez faire un don financier à l'association, cela se passe sur notre page&nbsp;
+          </p>
+          <a
+            href="https://www.helloasso.com/associations/cocomptoir"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="donation-financial-btn"
+          >
+            HelloAsso
+          </a>
+        </div>
+      </div>
     </section>
   );
 } 

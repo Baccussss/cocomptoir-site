@@ -1,0 +1,80 @@
+.presentation-section {
+  background: var(--primary-green);
+  padding: 4rem 2rem 3rem 2rem;
+  border-bottom: 2px solid black;
+}
+
+.presentation-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 3rem;
+}
+
+.presentation-left {
+  flex: 2 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.presentation-title {
+  font-size: 2.6rem;
+  font-family: var(--font-title);
+  font-weight: bold;
+  color: var(--text-dark);
+  margin-bottom: 2.2rem;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.presentation-text {
+  font-size: 1.1rem;
+  color: #222;
+  line-height: 1.6;
+  text-align: left;
+  margin: 0;
+}
+
+.presentation-right {
+  flex: 3 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.presentation-img {
+  width: 100%;
+  max-width: 700px;
+  min-width: 400px;
+  object-fit: cover;
+  border-radius: calc(1.5 * var(--radius-l));
+  display: block;
+  box-shadow: var(--shadow);
+  background: none;
+}
+
+@media (max-width: 1000px) {
+  .presentation-flex {
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .presentation-left, .presentation-right {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .presentation-title, .presentation-text {
+    text-align: center;
+  }
+  .presentation-img {
+    max-width: 90vw;
+    min-width: 120px;
+    aspect-ratio: auto;
+  }
+} 

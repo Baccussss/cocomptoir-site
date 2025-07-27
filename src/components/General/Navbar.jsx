@@ -29,7 +29,7 @@ export default function Navbar() {
                 <ul className={`navbar-links ${menuOpen ? 'active' : ''}`}>
                     <li><Link to="/about">À propos</Link></li>
                     <li><Link to="/local">Le Local</Link></li>
-                    <li><Link to="/volunteer" className="btn-outline">Devenir Bénévole</Link></li>
+                    <li><Link to="/benevole" className="btn-outline">Devenir Bénévole</Link></li>
                     <li><Link to="/donate" className="don-btn">Faire un Don</Link></li>
                 </ul>
             </div>

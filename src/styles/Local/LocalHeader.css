@@ -1,0 +1,63 @@
+.mission-section {
+  background: var(--background-beige);
+  padding: 3rem 2rem;
+  border-bottom: 2px solid black;
+}
+
+.mission-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mission-title {
+  flex: 1 1 0;
+  font-size: var(--font-size-title);
+  font-family: var(--font-title);
+  font-weight: bold;
+  color: var(--text-dark);
+  text-align: left;
+  margin: 0;
+}
+
+.mission-img {
+  flex: 0 0 auto;
+  width: 180px;
+  height: auto;
+  max-width: 22vw;
+  min-width: 100px;
+  object-fit: contain;
+  display: block;
+}
+
+.mission-text {
+  flex: 2 1 0;
+  font-size: 1.15rem;
+  color: #222;
+  line-height: 1.7;
+  margin: 0;
+  opacity: 0.95;
+  text-align: left;
+  padding-left: 1rem;
+}
+
+@media (max-width: 900px) {
+  .mission-flex {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: stretch;
+    text-align: center;
+  }
+  .mission-title, .mission-text {
+    text-align: center;
+    padding-left: 0;
+  }
+  .mission-img {
+    margin: 0 auto;
+    max-width: 40vw;
+  }
+} 

@@ -1,0 +1,127 @@
+.bureau-section {
+  background: var(--primary-green);
+  padding: 3.5rem 0 2.5rem 0;
+}
+
+.bureau-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.bureau-equipe {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.bureau-title {
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin: 0.2rem 0 0.7rem 0;
+}
+
+.bureau-subtitle {
+  font-size: 1.1rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.bureau-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.2rem 2.8rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.bureau-card {
+  background: rgba(255,255,255,0.18);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 18px 0 rgba(0,0,0,0.07);
+  padding: 2.7rem 1.7rem 2.1rem 1.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 280px;
+  transition: box-shadow 0.2s;
+}
+
+.bureau-card:hover {
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.09);
+}
+
+.bureau-photo-wrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.bureau-photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #e0e0e0;
+}
+
+.bureau-nom {
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+
+.bureau-role {
+  font-weight: 500;
+  font-size: 1.02rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+  text-align: center;
+}
+
+.bureau-desc {
+  font-size: 0.98rem;
+  color: #222;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .bureau-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.2rem 1.5rem;
+    max-width: 98vw;
+  }
+  .bureau-card {
+    min-height: 250px;
+    padding: 2rem 1rem 1.2rem 1rem;
+  }
+  .bureau-photo-wrapper {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.1rem;
+  }
+  .bureau-photo {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media (max-width: 600px) {
+  .bureau-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .bureau-section {
+    padding: 2rem 0 1.2rem 0;
+  }
+  .bureau-title {
+    font-size: 2rem;
+  }
+} 

@@ -1,0 +1,136 @@
+.precarite-section {
+  background: var(--background-beige);
+  padding: 4rem 2rem 3rem 2rem;
+  border-bottom: 2px solid black;
+}
+
+.precarite-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 3rem;
+}
+
+.precarite-left {
+  flex: 1.2 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.precarite-img {
+  width: 100%;
+  max-width: 520px;
+  min-width: 260px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #ededed;
+  display: block;
+}
+
+.precarite-right {
+  flex: 2 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.precarite-title {
+  font-size: 2.3rem;
+  font-family: var(--font-title);
+  font-weight: bold;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.precarite-desc {
+  font-size: 1.08rem;
+  color: #222;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: 1.2rem;
+}
+
+.precarite-desc ul {
+  margin: 0.5rem 0 0.5rem 1.2rem;
+  padding: 0;
+  list-style: disc inside;
+}
+
+.precarite-stats-row {
+  display: flex;
+  flex-direction: row;
+  gap: 3.5rem;
+  margin-top: 1.2rem;
+}
+
+.precarite-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 180px;
+}
+
+.precarite-stat-value {
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: var(--text-dark);
+  margin-bottom: 0.2rem;
+}
+
+.precarite-stat-text {
+  font-size: 1.05rem;
+  color: #222;
+  opacity: 0.95;
+}
+
+@media (max-width: 1000px) {
+  .precarite-flex {
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .precarite-left, .precarite-right {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .precarite-title, .precarite-desc, .precarite-stat-text {
+    text-align: center;
+  }
+  .precarite-img {
+    max-width: 80vw;
+    min-width: 120px;
+  }
+  .precarite-stats-row {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .precarite-stat {
+    align-items: center;
+  }
+} 
+
+.placeholder-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0e0e0;
+  color: #888;
+  font-size: 1.3rem;
+  font-style: italic;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 520px;
+  min-width: 260px;
+  aspect-ratio: 1/1;
+} 

@@ -1,0 +1,157 @@
+.benevole-actions-section {
+  background: var(--background-beige);
+  padding: 3rem 2rem 2rem 2rem;
+  text-align: center;
+  border-bottom: 1.5px solid #222;
+}
+
+.benevole-actions-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.benevole-actions-section h2 {
+  font-size: 2.3rem;
+  color: var(--text-dark);
+  margin-bottom: 2.5rem;
+  font-weight: bold;
+}
+
+.benevole-actions-desc {
+  text-align: center;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.action-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.action-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.action-icon img {
+  display: block;
+  margin: 0;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.action-card h3 {
+  color: var(--text-dark);
+  font-size: 1.3rem;
+  margin-bottom: 0.7rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.action-card p {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.action-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.action-card li {
+  color: #333;
+  padding: 0.5rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+}
+
+.action-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary-green);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Supprime le fond derrière les images dans BenevoleActions */
+.actions-grid .donation-type-img {
+  background: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .benevole-actions-section {
+    padding: 2rem 1rem 1rem 1rem;
+  }
+
+  .benevole-actions-section h2 {
+    font-size: 2rem;
+  }
+
+  .actions-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .action-card {
+    padding: 2rem;
+  }
+
+  .action-icon img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .benevole-actions-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .benevole-actions-desc {
+    font-size: 1rem;
+  }
+
+  .action-card {
+    padding: 1.5rem;
+  }
+
+  .action-card h3 {
+    font-size: 1.3rem;
+  }
+} 

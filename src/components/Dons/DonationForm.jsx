@@ -85,7 +85,7 @@ export default function DonationForm() {
   return (
     <section className="donation-form-section">
       <h2>Faire un don</h2>
-      <p className="donation-form-desc">Après avoir rempli ce formulaire, nous vous recontacterons pour convenir d’un horaire et nous viendrons récupérer les produits directement chez vous.</p>
+      <p className="donation-form-desc">Après avoir rempli ce formulaire, nous vous recontacterons pour convenir d’un horaire et nous viendrons récupérer les produits chez vous.</p>
       <form ref={formRef} className="donation-form full-width-form" onSubmit={handleSubmit}>
         <div className="form-row">
           <label>

@@ -65,6 +65,49 @@
   line-height: 1.6;
 }
 
+.donation-financial-info {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.donation-financial-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.donation-financial-text {
+  font-size: 1.04rem;
+  color: #222;
+  margin-bottom: 0;
+  opacity: 0.85;
+  display: inline-block;
+}
+
+.donation-financial-btn {
+  display: inline-block;
+  background: var(--primary-green);
+  color: var(--text-dark);
+  font-weight: bold;
+  border: none;
+  border-radius: var(--radius-m);
+  padding: 0.7rem 1.5rem;
+  font-size: 1.05rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  margin-top: 0;
+}
+
+.donation-financial-btn:hover {
+  background: var(--primary-green-dark);
+  color: var(--text-dark);
+  transform: translateY(-2px) scale(1.04);
+}
+
 @media (max-width: 800px) {
   .donation-types-cards {
     flex-direction: column;
@@ -74,5 +117,16 @@
   .donation-type-card {
     max-width: 98vw;
     min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .donation-financial-row {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .donation-financial-btn {
+    width: 100%;
+    text-align: center;
   }
 } 

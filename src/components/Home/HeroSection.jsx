@@ -26,7 +26,7 @@ const HeroSection = () => {
                     Nous luttons contre la précarité étudiante en offrant un accès à des produits essentiels dans notre local convivial !
                 </p>
                 <div className="hero-buttons">
-                    <Link to="/volunteer" className="hero-button">Devenir Bénévole</Link>
+                    <Link to="/benevole" className="hero-button">Devenir Bénévole</Link>
                     <Link to="/donate" className="hero-button">Faire un Don</Link>
                 </div>
             </div>
