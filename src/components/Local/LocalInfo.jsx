@@ -14,7 +14,7 @@ const LocalInfos = () => {
           </p>
         </div>
         <div className="local-infos-img-block">
-          <img src={localPhoto} alt="local CoComptoir" className="local-infos-img" />
+          <img src={localPhoto} alt="local CoComptoir " className="local-infos-img" />
         </div>
       </div>
     </section>
