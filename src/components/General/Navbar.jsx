@@ -7,6 +7,12 @@ import tablebonhomme from '../../assets/bonhommes/tablebonhomme.png'; // Import 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
+    // Fonction pour fermer le menu et remettre en haut de page
+    const handleLinkClick = () => {
+        setMenuOpen(false);
+        window.scrollTo(0, 0);
+    };
+
     return (
         <nav className="navbar">
             <div className="navbar-left">
@@ -27,10 +33,10 @@ export default function Navbar() {
 
             <div className={`navbar-right`}>
                 <ul className={`navbar-links ${menuOpen ? 'active' : ''}`}>
-                    <li><Link to="/about">À propos</Link></li>
-                    <li><Link to="/local">Le Local</Link></li>
-                    <li><Link to="/benevole" className="btn-outline">Devenir Bénévole</Link></li>
-                    <li><Link to="/donate" className="don-btn">Faire un Don</Link></li>
+                    <li><Link to="/about" onClick={handleLinkClick}>À propos</Link></li>
+                    <li><Link to="/local" onClick={handleLinkClick}>Le Local</Link></li>
+                    <li><Link to="/benevole" className="btn-outline" onClick={handleLinkClick}>Devenir Bénévole</Link></li>
+                    <li><Link to="/donate" className="don-btn" onClick={handleLinkClick}>Faire un Don</Link></li>
                 </ul>
             </div>
         </nav>

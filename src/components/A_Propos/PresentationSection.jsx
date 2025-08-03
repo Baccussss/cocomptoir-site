@@ -11,7 +11,7 @@ const PresentationSection = () => {
             Découvrez CoComptoir : une association solidaire pour les étudiants en situation de précarité.
           </h2>
           <p className="presentation-text">
-            CoComptoir est né de la volonté d'étudiant de lutter contre la précarité, et l'isolement étudiant, qui vont souvent de pair. Ainsi, plus qu’un simple point de distribution, CoComptoir se veut être un espace de solidarité et de convivialité, où les étudiant·es peuvent se retrouver, échanger et participer à des initiatives collectives.
+            CoComptoir est né de la volonté d'étudiants de lutter contre la précarité, et l'isolement étudiant, qui vont souvent de pair. Ainsi, plus qu’un simple point de distribution, CoComptoir se veut être un espace de solidarité et de convivialité, où les étudiant·es peuvent se retrouver, échanger et participer à des initiatives collectives.
           </p>
         </div>
         <div className="presentation-right">

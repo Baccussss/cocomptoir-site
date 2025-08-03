@@ -121,6 +121,11 @@
   .actions-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+    justify-items: center;
+  }
+  .action-card {
+    width: 100%;
+    max-width: 500px;
   }
 
   .action-card {

@@ -64,8 +64,8 @@
 }
 
 .bureau-photo {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   object-fit: cover;
   border-radius: 50%;
   background: #e0e0e0;
@@ -108,8 +108,8 @@
     margin-bottom: 1.1rem;
   }
   .bureau-photo {
-    width: 65px;
-    height: 65px;
+    width: 75px;
+    height: 75px;
   }
 }
 

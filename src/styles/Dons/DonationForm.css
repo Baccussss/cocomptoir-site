@@ -271,3 +271,51 @@
   line-height: 1.6;
 } 
 
+@media (max-width: 600px) {
+  .donation-type-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+
+.donation-form .g-recaptcha > div {
+  max-width: 100% !important;
+}
+
+@media (max-width: 600px) {
+  .donation-form .g-recaptcha {
+    transform: scale(0.85);
+    transform-origin: 0 0;
+    width: 100% !important;
+  }
+} 
+
+.captcha-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.captcha-container .g-recaptcha {
+  width: 100% !important;
+  max-width: 304px;
+  min-width: 0;
+}
+
+@media (max-width: 350px) {
+  .captcha-container .g-recaptcha {
+    transform: scale(0.85);
+    transform-origin: 0 0;
+  }
+}
+@media (max-width: 300px) {
+  .captcha-container .g-recaptcha {
+    transform: scale(0.7);
+    transform-origin: 0 0;
+  }
+} 
+

@@ -84,6 +84,7 @@
     font-size: 1.1rem;
     line-height: 1.7;
     color: #333;
+    text-align: justify;
 }
 
 .process-image,
@@ -113,4 +114,12 @@
     .process-steps {
         gap: 1.2rem;
     }
+}
+
+@media (max-width: 600px) {
+  .process-text h2 {
+    font-size: 2rem;
+    max-width: 95vw;
+    word-break: break-word;
+  }
 }

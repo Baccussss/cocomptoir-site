@@ -37,6 +37,7 @@
   color: var(--white);
   letter-spacing: 0.5px;
   min-width: 70px;
+  white-space: nowrap;
 }
 
 .footer-address,
@@ -129,6 +130,15 @@
   object-fit: contain;
   padding: 6px;
   box-sizing: border-box;
+}
+
+.villeurbanne-mobile {
+  display: inline;
+}
+@media (max-width: 600px) {
+  .villeurbanne-mobile {
+    display: block;
+  }
 }
 
 @media (max-width: 900px) {
