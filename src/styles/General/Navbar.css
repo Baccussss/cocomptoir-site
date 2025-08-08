@@ -1,166 +1,211 @@
 @import url('../variables.css');
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+/* =================== Progress bar =================== */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 0%;
+  z-index: 2000;
+  background: linear-gradient(
+    90deg,
+    var(--primary-green),
+    var(--yellow, yellow)
+  );
+  pointer-events: none;
+}
+
+/* =================== NAVBAR =================== */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    /* space between left and right */
-    align-items: center;
-    padding: var(--spacing-m) var(--spacing-xl);
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: var(--shadow);
-    border-bottom: 2px solid var(--text-dark);
-    backdrop-filter: saturate(180%) blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    gap: var(--spacing-l);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-m) var(--spacing-xl);
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow);
+  border-bottom: 2px solid var(--text-dark);
+  backdrop-filter: saturate(180%) blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  gap: var(--spacing-l);
 }
 
 .navbar-left {
-    flex: 1;
+  flex: 1;
 }
 
 .navbar-right {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-m);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-m);
 }
 
-/* Navbar image styling */
+/* =================== Image décorative =================== */
 .navbar-image {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 0;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
 }
 
 .navbar-image img {
-    height: 70px;
-    width: auto;
+  height: 70px;
+  width: auto;
 }
 
-.don-btn {
-    background-color: var(--primary-green);
-    color: var(--text-dark);
-    padding: 0.6rem 1.2rem;
-    border-radius: var(--radius-m);
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.don-btn:hover {
-    background-color: var(--primary-green-dark);
-    text-decoration: none;
-}
-
+/* =================== Boutons =================== */
+.don-btn,
 .btn-outline {
-    background-color: var(--primary-green);
-    color: var(--text-dark);
-    padding: 0.6rem 1.2rem;
-    border-radius: var(--radius-m);
-    font-weight: bold;
-    transition: background-color 0.3s;
-    text-decoration: none;
+  background-color: var(--primary-green);
+  color: var(--text-dark);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-m);
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid var(--primary-green-dark);
+  transition: background-color 0.3s, box-shadow 0.2s, transform 0.08s, border-color 0.2s;
+}
+
+/* Bénévole (outline clair, fond blanc) */
+.btn-outline {
+  background: #fff;
+  border-color: var(--primary-green);
 }
 
 .btn-outline:hover {
-    background-color: var(--primary-green-dark);
-    text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(162, 219, 145, 0.25);
+  border-color: var(--primary-green-dark);
 }
 
+/* Don (fond vert) */
+.don-btn:hover {
+  background-color: var(--primary-green-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(162, 219, 145, 0.5);
+}
+
+/* ÉTAT ACTIF des boutons (halo, comme l’exemple d’inspiration) */
+.btn-outline.active,
+.don-btn.active {
+  box-shadow: 0 0 0 3px rgba(143, 201, 122, 0.6);
+}
+
+/* =================== Logo =================== */
 .logo {
-    height: 60px;
-    transition: transform 0.2s ease;
+  height: 60px;
+  transition: transform 0.2s ease;
 }
 
 .logo:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
+/* =================== Liens =================== */
 .navbar-links {
-    display: flex;
-    gap: var(--spacing-l);
-    list-style: none;
-    justify-content: flex-end;
-    flex: 1;
+  display: flex;
+  gap: var(--spacing-l);
+  list-style: none;
+  justify-content: flex-end;
+  flex: 1;
 }
 
 .navbar-links a {
-    text-decoration: none;
-    color: var(--text-dark);
-    font-weight: 500;
-    font-size: 1.1rem;
-    position: relative;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  font-size: 1.1rem;
+  position: relative;
 }
 
-.navbar-links a.btn-outline,
-.navbar-links a.don-btn {
-    font-weight: bold;
-}
-
-.navbar-links a::after {
-    content: '';
-    display: block;
-    width: 0%;
-    height: 2px;
-    background-color: var(--primary-green);
-    transition: width 0.3s;
-    position: absolute;
-    bottom: -4px;
-    left: 0;
+/* Soulignement au survol (UNIQUEMENT pour les liens non-boutons) */
+.navbar-links a:not(.btn-outline):not(.don-btn)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background-color: var(--primary-green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
 }
 
 .navbar-links a:not(.btn-outline):not(.don-btn):hover::after {
-    width: 100%;
+  transform: scaleX(1);
 }
 
-/* Mobile version */
+/* ✅ Soulignement dégradé PERSISTANT quand ACTIF (seulement liens non-boutons) */
+.navbar-links a:not(.btn-outline):not(.don-btn).active::after {
+  transform: scaleX(1);
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green), var(--yellow, yellow));
+  border-radius: 2px;
+}
+
+/* =================== Hamburger =================== */
 .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: var(--spacing-xs);
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: var(--spacing-xs);
+  background: transparent;
+  border: 0;
+  padding: 0;
 }
 
 .hamburger div {
-    width: 24px;
-    height: 3px;
-    background-color: var(--text-dark);
-    border-radius: var(--radius-s);
+  width: 24px;
+  height: 3px;
+  background-color: var(--text-dark);
+  border-radius: var(--radius-s);
 }
 
+/* =================== Responsive =================== */
 @media screen and (max-width: 1150px) {
-    .navbar-image img {
-        display: none;
-    }
+  .navbar-image img {
+    display: none;
+  }
 }
-
 
 @media screen and (max-width: 965px) {
-    .navbar-links {
-        position: absolute;
-        top: 100%; /* juste sous la navbar */
-        left: 0;
-        right: 0;
-        background-color: var(--white);
-        flex-direction: column;
-        align-items: center;
-        display: none;
-        padding: var(--spacing-m);
-    }
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: var(--spacing-m);
+  }
 
-    .navbar-links.active {
-        display: flex;
-    }
 
-    .hamburger {
-        display: flex;
-    }
+  .navbar-links a.btn-outline,
+  .navbar-links a.don-btn {
+    width: 100%;          /* occupe toute la largeur du menu */
+    text-align: center;   /* centre le texte */
+    box-sizing: border-box;
+  }
+
+
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
 }

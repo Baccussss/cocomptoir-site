@@ -1,44 +1,104 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import '../../styles/General/Navbar.css';
 import logo from '../../assets/logo.png';
-import tablebonhomme from '../../assets/bonhommes/tablebonhomme.png'; // Import the image you uploaded
+import tablebonhomme from '../../assets/bonhommes/tablebonhomme.png';
 
 export default function Navbar() {
-    const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    // Fonction pour fermer le menu et remettre en haut de page
-    const handleLinkClick = () => {
-        setMenuOpen(false);
-        window.scrollTo(0, 0);
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+    window.scrollTo(0, 0);
+  };
+
+  // Barre de progression de scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      const bar = document.getElementById('scroll-progress');
+      if (bar) bar.style.width = pct + '%';
     };
 
-    return (
-        <nav className="navbar">
-            <div className="navbar-left">
-                <Link to="/">
-                    <img src={logo} alt="Logo CoComptoir" className="logo" />
-                </Link>
-            </div>
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // init
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-            <div className="navbar-image">
-                <img src={tablebonhomme} alt="Table Bonhomme" />
-            </div>
+  return (
+    <>
+      {/* Barre de progression */}
+      <div id="scroll-progress" aria-hidden="true"></div>
 
-            <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+      <nav className="navbar" role="navigation" aria-label="Navigation principale">
+        <div className="navbar-left">
+          <NavLink to="/" onClick={handleLinkClick} className="logo-link" end>
+            <img src={logo} alt="Logo CoComptoir" className="logo" />
+          </NavLink>
+        </div>
 
-            <div className={`navbar-right`}>
-                <ul className={`navbar-links ${menuOpen ? 'active' : ''}`}>
-                    <li><Link to="/about" onClick={handleLinkClick}>À propos</Link></li>
-                    <li><Link to="/local" onClick={handleLinkClick}>Le Local</Link></li>
-                    <li><Link to="/benevole" className="btn-outline" onClick={handleLinkClick}>Devenir Bénévole</Link></li>
-                    <li><Link to="/donate" className="don-btn" onClick={handleLinkClick}>Faire un Don</Link></li>
-                </ul>
-            </div>
-        </nav>
-    );
+        <div className="navbar-image" aria-hidden="true">
+          <img src={tablebonhomme} alt="Table Bonhomme" />
+        </div>
+
+        <button
+          className="hamburger"
+          aria-label="Ouvrir le menu"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <div></div>
+          <div></div>
+          <div></div>
+        </button>
+
+        <div className="navbar-right">
+          <ul className={`navbar-links ${menuOpen ? 'active' : ''}`}>
+            <li>
+              <NavLink
+                to="/about"
+                onClick={handleLinkClick}
+                className={({ isActive }) => (isActive ? 'link active' : 'link')}
+              >
+                À propos
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/local"
+                onClick={handleLinkClick}
+                className={({ isActive }) => (isActive ? 'link active' : 'link')}
+              >
+                Le Local
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/benevole"
+                onClick={handleLinkClick}
+                className={({ isActive }) =>
+                  isActive ? 'btn-outline active' : 'btn-outline'
+                }
+              >
+                Devenir Bénévole
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/donate"
+                onClick={handleLinkClick}
+                className={({ isActive }) =>
+                  isActive ? 'don-btn active' : 'don-btn'
+                }
+              >
+                Faire un Don
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </>
+  );
 }
