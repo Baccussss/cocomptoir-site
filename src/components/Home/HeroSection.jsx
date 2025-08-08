@@ -1,4 +1,3 @@
-// src/components/HeroSection.jsx
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -19,6 +18,9 @@ const HeroSection = () => {
     return (
         <section className="hero-container">
             <div className="hero-text">
+                {/* Badge/étiquette au-dessus du titre */}
+                <span className="hero-badge">Association étudiante solidaire</span>
+
                 <h1 className="hero-title">
                     CoComptoir, une association pour les étudiant·es !
                 </h1>
@@ -34,7 +36,7 @@ const HeroSection = () => {
             <div className="hero-carousel">
                 <Swiper
                     autoplay={{ delay: 5000, disableOnInteraction: false }}
-                    pagination={{ clickable: true }}
+                    pagination={{ clickable: true }}     // Pagination visible
                     navigation={true}
                     modules={[Autoplay, Pagination, Navigation]}
                     spaceBetween={20}
