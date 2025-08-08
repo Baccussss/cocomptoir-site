@@ -94,7 +94,7 @@
   box-shadow: 0 10px 24px rgba(162, 219, 145, 0.5);
 }
 
-/* ÉTAT ACTIF des boutons (halo, comme l’exemple d’inspiration) */
+/* ÉTAT ACTIF des boutons (halo) */
 .btn-outline.active,
 .don-btn.active {
   box-shadow: 0 0 0 3px rgba(143, 201, 122, 0.6);
@@ -127,30 +127,24 @@
   position: relative;
 }
 
-/* Soulignement au survol (UNIQUEMENT pour les liens non-boutons) */
+/* Soulignement dégradé commun hover + actif (liens non-boutons) */
 .navbar-links a:not(.btn-outline):not(.don-btn)::after {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
   bottom: -4px;
-  height: 2px;
-  background-color: var(--primary-green);
+  height: 4px; /* même épaisseur pour hover et actif */
+  background: linear-gradient(90deg, var(--primary-green), var(--yellow, yellow));
+  border-radius: 2px;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s;
 }
 
-.navbar-links a:not(.btn-outline):not(.don-btn):hover::after {
-  transform: scaleX(1);
-}
-
-/* ✅ Soulignement dégradé PERSISTANT quand ACTIF (seulement liens non-boutons) */
+.navbar-links a:not(.btn-outline):not(.don-btn):hover::after,
 .navbar-links a:not(.btn-outline):not(.don-btn).active::after {
   transform: scaleX(1);
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-green), var(--yellow, yellow));
-  border-radius: 2px;
 }
 
 /* =================== Hamburger =================== */
@@ -191,15 +185,12 @@
     padding: var(--spacing-m);
   }
 
-
   .navbar-links a.btn-outline,
   .navbar-links a.don-btn {
-    width: 100%;          /* occupe toute la largeur du menu */
-    text-align: center;   /* centre le texte */
+    width: 100%;
+    text-align: center;
     box-sizing: border-box;
   }
-
-
 
   .navbar-links.active {
     display: flex;

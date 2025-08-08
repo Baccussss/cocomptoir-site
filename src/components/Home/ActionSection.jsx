@@ -43,19 +43,15 @@ export default function ActionSection() {
           <article className="action-card" key={i}>
             <span className="card-accent" aria-hidden="true" />
             <div className="icon-pill">
-              <img src={icon} alt="" className="action-icon" aria-hidden="true" />
+              <img src={icon} alt="" className="action-icon" loading="lazy" aria-hidden="true" />
             </div>
 
             <h3 className="card-title">{title}</h3>
             <p className="card-desc">{description}</p>
 
             {withButton && (
-              <Link
-                to="/local"
-                className="action-btn"
-                onClick={scrollTop}
-              >
-                Découvrir le local 
+              <Link to="/local" className="action-btn" onClick={scrollTop}>
+                Découvrir le local
               </Link>
             )}
           </article>
