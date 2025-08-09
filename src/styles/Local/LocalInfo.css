@@ -1,80 +1,122 @@
+/* ====== LOCAL INFOS ====== */
 .local-infos-section {
+  position: relative;
   background: var(--primary-green);
-  padding: 4rem 2rem 3rem 2rem;
+  padding: 4rem 2rem 3.5rem;
   border-bottom: 2px solid black;
+  overflow: hidden;
 }
 
+/* décor radial doux comme la présentation */
+.local-infos-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(30rem 18rem at 12% 15%, rgba(255,255,255,.18), transparent 60%),
+    radial-gradient(36rem 20rem at 85% 20%, rgba(255,255,255,.14), transparent 60%),
+    radial-gradient(40rem 24rem at 50% 100%, rgba(255,255,255,.12), transparent 60%);
+  mix-blend-mode: soft-light;
+  opacity: .9;
+}
+
+/* grille : on élargit le conteneur et on réduit les marges perçues */
 .local-infos-flex {
-  display: flex;
-  flex-direction: row;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.2rem; /* gap un peu plus serré */
   align-items: center;
-  justify-content: space-between;
-  max-width: 1400px;
+  max-width: min(1500px, 92vw); /* plus large que 1300px, et 92vw pour utiliser l’écran */
   margin: 0 auto;
-  gap: 3rem;
 }
 
-.local-infos-content {
-  flex: 2 1 0;
+@media (min-width: 980px) {
+  .local-infos-flex {
+    grid-template-columns: 1.2fr 1fr; /* texte un peu plus large */
+    gap: 2.5rem;                      /* gap resserré vs 3.2rem */
+  }
+}
+
+/* colonne gauche (texte) */
+.local-infos-left {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
 }
 
-.local-infos-title {
-  font-size: 2.6rem;
-  font-family: var(--font-title);
-  font-weight: bold;
+/* étiquette dégradée */
+.local-infos-badge {
+  display: inline-block;
+  font-weight: 800;
+  font-size: .85rem;
   color: var(--text-dark);
-  margin-bottom: 2.2rem;
+  background: linear-gradient(90deg, var(--primary-yellow), #f7ffbd);
+  padding: .35rem .7rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  margin-bottom: .9rem;
+}
+
+/* titre */
+.local-infos-title {
+  font-family: var(--font-title);
+  font-weight: 800;
+  color: var(--text-dark);
   line-height: 1.15;
-  text-align: left;
+  font-size: clamp(2rem, 2.4vw + 1rem, 2.8rem);
+  margin: 0 0 1.4rem;
+}
+
+/* carte blanche (glassy light) pour le texte */
+.local-infos-card {
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 16px;
+  padding: 1.15rem 1.25rem;
+  box-shadow: 0 8px 26px rgba(0,0,0,.08);
+  backdrop-filter: blur(2px);
 }
 
 .local-infos-text {
-  font-size: 1.1rem;
-  color: #222;
-  line-height: 1.6;
-  text-align: left;
+  font-size: 1.12rem;
+  color: #1f2a1f;
+  line-height: 1.7;
   margin: 0;
 }
 
-.local-infos-img-block {
-  flex: 3 1 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* colonne droite (image) */
+.local-infos-right {
+  display: grid;
+  place-items: center;
 }
 
 .local-infos-img {
-  width: 100%;
-  max-width: 700px;
-  min-width: 400px;
-  object-fit: cover;
-  border-radius: calc(1.5 * var(--radius-l));
   display: block;
-  box-shadow: var(--shadow);
-  background: none;
+  width: min(750px, 100%);  /* image un poil plus large */
+  min-width: 320px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  transition: transform .35s ease, box-shadow .35s ease;
 }
 
+.local-infos-img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(0,0,0,.18);
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 1000px) {
-  .local-infos-flex {
-    flex-direction: column;
-    gap: 2.5rem;
-    align-items: center;
-  }
-  .local-infos-content, .local-infos-img-block {
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  .local-infos-title, .local-infos-text {
-    text-align: center;
-  }
-  .local-infos-img {
-    max-width: 90vw;
-    min-width: 120px;
-    aspect-ratio: auto;
-  }
-} 
+  .local-infos-left { align-items: center; text-align: center; }
+  .local-infos-card { padding: 1rem 1.1rem; }
+  .local-infos-img  { min-width: 220px; max-width: 92vw; }
+}
+
+@media (max-width: 560px) {
+  .local-infos-title { font-size: 1.9rem; }
+  .local-infos-card  { border-radius: 14px; }
+  .local-infos-img   { border-radius: 14px; }
+}

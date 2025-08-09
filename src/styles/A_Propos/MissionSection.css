@@ -28,7 +28,7 @@
 .mission-title::after {
   content: "";
   position: absolute;
-  left: 42%;                 /* ton réglage desktop */
+  left: 50%;                 /* ton réglage desktop */
   bottom: -10px;
   transform: translateX(-50%);
   width: 95%;

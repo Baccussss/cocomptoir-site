@@ -33,11 +33,26 @@
 }
 
 .process-text p {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    color: #222;
-    margin-top: 1rem;
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: #1f2a1f;
+  margin: 0;                 /* on enlève le margin-top pour coller à la carte */
+  padding: 1rem 1.2rem;      /* padding de la carte */
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(2px);
+  text-align: center;        /* cohérent avec le layout mobile */
 }
+
+/* Garde le left align en desktop comme avant */
+@media (min-width: 768px) {
+  .process-text p {
+    text-align: left;
+  }
+}
+
 
 .process-image img {
     width: 100%;
