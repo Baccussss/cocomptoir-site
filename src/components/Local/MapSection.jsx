@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/Local/MapSection.css';
+import hamac from '../../assets/bonhommes/hamac.png';
 
 const MapSection = () => {
   return (
@@ -8,7 +9,6 @@ const MapSection = () => {
       <div className="map-grid">
         {/* Carte Adresse + Map */}
         <article className="map-card map-card--left">
-          
           <h2 className="map-title">Où nous retrouver&nbsp;?</h2>
 
           <div className="map-address-row">
@@ -30,31 +30,31 @@ const MapSection = () => {
           </div>
         </article>
 
-        {/* Carte Planning / Instagram */}
-        <article className="map-card map-card--right">
-          
-          <h2 className="map-title">Planning du Local</h2>
+        {/* Colonne droite : Planning + image hamac dessous */}
+        <div className="map-right">
+          <article className="map-card map-card--right">
+            <h2 className="map-title">Planning du Local</h2>
+            <p className="map-text">
+              Les horaires d’ouverture du local sont publiés chaque semaine sur
+              notre Instagram. Nous y annonçons aussi les événements conviviaux :
+              ateliers, cafés, rencontres… Suis‑nous pour ne rien manquer !
+              <br />
+            </p>
+            <a
+              href="https://instagram.com/cocomptoir"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="map-insta-btn"
+              aria-label="Instagram CoComptoir"
+            >
+              Voir le planning sur Instagram
+            </a>
+          </article>
 
-          <p className="map-text">
-            Les horaires d’ouverture du local sont publiés chaque semaine sur
-            notre Instagram. Nous y annonçons aussi les événements conviviaux :
-            ateliers, cafés, rencontres… Suis‑nous pour ne rien manquer !
-          <br />
-
-          
-          
-          </p>
-
-          <a
-            href="https://instagram.com/cocomptoir"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="map-insta-btn"
-            aria-label="Instagram CoComptoir"
-          >
-            Voir le planning sur Instagram
-          </a>
-        </article>
+          <div className="map-illustration-wrap" aria-hidden="true">
+            <img src={hamac} alt="" className="map-illustration" />
+          </div>
+        </div>
       </div>
     </section>
   );

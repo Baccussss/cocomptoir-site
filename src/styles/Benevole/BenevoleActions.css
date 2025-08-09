@@ -16,6 +16,21 @@
   color: var(--text-dark);
   margin-bottom: 2.5rem;
   font-weight: bold;
+  position: relative;
+  display: inline-block;
+}
+
+/* Soulignement gradient sous le titre */
+.benevole-actions-section h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green), var(--yellow));
+  border-radius: 999px;
 }
 
 .benevole-actions-desc {
@@ -159,4 +174,4 @@
   .action-card h3 {
     font-size: 1.3rem;
   }
-} 
+}

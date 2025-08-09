@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
-import '../../styles/Benevole/BenevoleForm.css'
+import '../../styles/Benevole/BenevoleForm.css';
 
 export default function BenevoleForm() {
   const [form, setForm] = useState({
@@ -26,18 +26,18 @@ export default function BenevoleForm() {
     const { name, value, checked } = e.target;
     if (name in form.investissement) {
       if (name === 'permanences' || name === 'collecte_dons') {
-        setForm({
-          ...form,
-          investissement: { ...form.investissement, [name]: checked },
-        });
+        setForm(prev => ({
+          ...prev,
+          investissement: { ...prev.investissement, [name]: checked },
+        }));
       } else {
-        setForm({
-          ...form,
-          investissement: { ...form.investissement, [name]: value },
-        });
+        setForm(prev => ({
+          ...prev,
+          investissement: { ...prev.investissement, [name]: value },
+        }));
       }
     } else {
-      setForm({ ...form, [name]: value });
+      setForm(prev => ({ ...prev, [name]: value }));
     }
   }
 
@@ -52,44 +52,55 @@ export default function BenevoleForm() {
       return;
     }
     setError('');
-    // Envoi EmailJS
-    emailjs.sendForm(
-      'service_3wmjjrg',
-      'template_jehorzo', 
-      formRef.current,
-      '1rYHPhS65bpP8ZSMH'
-    )
-    .then(() => {
-      setSubmitted(true);
-      setForm({
-        prenom: '',
-        nom: '',
-        age: '',
-        email: '',
-        telephone: '',
-        investissement: { permanences: false, collecte_dons: false, disponibilites: '' },
-        motivation: '',
+
+    emailjs
+      .sendForm(
+        'service_3wmjjrg',
+        'template_jehorzo',
+        formRef.current,
+        '1rYHPhS65bpP8ZSMH'
+      )
+      .then(() => {
+        setSubmitted(true);
+        setForm({
+          prenom: '',
+          nom: '',
+          age: '',
+          email: '',
+          telephone: '',
+          investissement: { permanences: false, collecte_dons: false, disponibilites: '' },
+          motivation: '',
+        });
+        setCaptcha(null);
+        if (formRef.current) formRef.current.reset();
+      })
+      .catch((err) => {
+        if (err && err.text) {
+          setError("Erreur lors de l'envoi : " + err.text + " Réessayez plus tard.");
+        } else {
+          setError("Erreur lors de l'envoi, réessayez plus tard.");
+        }
       });
-      setCaptcha(null);
-      if (formRef.current) formRef.current.reset();
-    })
-    .catch((err) => {
-      if (err && err.text) {
-        setError("Erreur lors de l'envoi : " + err.text + "réessayez plus tard.");
-      } else {
-        setError("Erreur lors de l'envoi, réessayez plus tard.");
-      }
-    });
   }
 
   return (
     <section className="benevole-form-section">
-      <h2>Devenir bénévole</h2>
-      <p className="benevole-form-desc">Rejoignez notre équipe de bénévoles et participez à nos actions solidaires. Remplissez ce formulaire et nous vous recontacterons rapidement.</p>
-      <form ref={formRef} className="benevole-form full-width-form" onSubmit={handleSubmit}>
-        <div className="form-row">
-          <label>
-            Prénom :
+      <div className="benevole-form-bg" aria-hidden="true" />
+      <h2 className="benevole-form-title">Devenir bénévole</h2>
+      <p className="benevole-form-desc">
+        Rejoignez notre équipe de bénévoles et participez à nos actions solidaires.
+        Remplissez ce formulaire et nous vous recontacterons rapidement.
+      </p>
+
+      <form ref={formRef} className="benevole-form" onSubmit={handleSubmit}>
+        {/* Bandeau d’erreur */}
+        {error && <p className="form-banner form-banner--error">{error}</p>}
+        {/* Bandeau succès */}
+        {submitted && <p className="form-banner form-banner--success">Merci pour votre candidature ! Nous vous contacterons rapidement.</p>}
+
+        <div className="form-grid">
+          <label className="field">
+            <span className="field-label">Prénom</span>
             <input
               type="text"
               name="prenom"
@@ -99,8 +110,9 @@ export default function BenevoleForm() {
               placeholder="Votre prénom"
             />
           </label>
-          <label>
-            Nom :
+
+          <label className="field">
+            <span className="field-label">Nom</span>
             <input
               type="text"
               name="nom"
@@ -110,100 +122,121 @@ export default function BenevoleForm() {
               placeholder="Votre nom"
             />
           </label>
+
+          <label className="field">
+            <span className="field-label">Âge</span>
+            <input
+              type="number"
+              name="age"
+              value={form.age}
+              onChange={handleChange}
+              required
+              min="16"
+              max="100"
+              placeholder="Votre âge"
+            />
+          </label>
+
+          <label className="field">
+            <span className="field-label">Adresse mail</span>
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              required
+              placeholder="Votre email"
+            />
+          </label>
+
+          <label className="field field--full">
+            <span className="field-label">Numéro de téléphone</span>
+            <input
+              type="tel"
+              name="telephone"
+              value={form.telephone}
+              onChange={handleChange}
+              required
+              placeholder="Votre numéro de téléphone"
+            />
+          </label>
         </div>
-        <label>
-          Âge :
-          <input
-            type="number"
-            name="age"
-            value={form.age}
-            onChange={handleChange}
-            required
-            placeholder="Votre âge"
-            min="16"
-            max="100"
-          />
-        </label>
-        <label>
-          Adresse mail :
-          <input
-            type="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            required
-            placeholder="Votre email"
-          />
-        </label>
-        <label>
-          Numéro de téléphone :
-          <input
-            type="tel"
-            name="telephone"
-            value={form.telephone}
-            onChange={handleChange}
-            required
-            placeholder="Votre numéro de téléphone"
-          />
-        </label>
-        <div className="investissement-row">
-          <span className="investissement-label">Ce que vous souhaitez faire :</span>
-          <div className="investissement-checkbox-row">
-            <label>
-              Faire des permanences au local
-              <input
-                type="checkbox"
-                name="permanences"
-                checked={form.investissement.permanences}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Aider à chercher des dons
-              <input
-                type="checkbox"
-                name="collecte_dons"
-                checked={form.investissement.collecte_dons}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <label>
-            Disponibilités régulières :
+
+   <div className="investissement-card">
+    <span className="investissement-title">Votre investissement</span>
+
+    <div className="field field--full" style={{marginBottom: '0.5rem'}}>
+      <span className="field-label">Ce que vous souhaitez faire</span>
+    </div>
+
+    <div className="investissement-checkbox-row">
+      <label className="check">
+        <input
+          type="checkbox"
+          name="permanences"
+          checked={form.investissement.permanences}
+          onChange={handleChange}
+        />
+        <span className="check-box" aria-hidden="true"></span>
+        <span className="check-text">Faire des permanences au local</span>
+      </label>
+
+      <label className="check">
+        <input
+          type="checkbox"
+          name="collecte_dons"
+          checked={form.investissement.collecte_dons}
+          onChange={handleChange}
+        />
+        <span className="check-box" aria-hidden="true"></span>
+        <span className="check-text">Aider à chercher des dons</span>
+      </label>
+    </div>
+
+
+
+          <label className="field field--full">
+            <span className="field-label">Disponibilités régulières</span>
             <input
               type="text"
               name="disponibilites"
               value={form.investissement.disponibilites}
               onChange={handleChange}
-              placeholder="Ex : mardis et jeudis après-midi, week-ends..."
+              placeholder="Ex : mardis et jeudis après-midi, week-ends…"
             />
           </label>
         </div>
-        <label>
-          Motivation pour devenir bénévole :
+
+        <label className="field field--full">
+          <span className="field-label">Motivation</span>
           <textarea
             name="motivation"
             value={form.motivation}
             onChange={handleChange}
             rows={4}
-            placeholder="Parlez-nous de votre motivation et de ce qui vous intéresse dans le bénévolat..."
+            placeholder="Parlez-nous de votre motivation et de ce qui vous intéresse dans le bénévolat…"
             required
           />
         </label>
-        {/* Champs cachés pour envoyer les données d'investissement */}
+
+        {/* Champs cachés pour EmailJS */}
         <input type="hidden" name="permanences" value={form.investissement.permanences ? 'Oui' : 'Non'} />
         <input type="hidden" name="collecte_dons" value={form.investissement.collecte_dons ? 'Oui' : 'Non'} />
         <input type="hidden" name="disponibilites" value={form.investissement.disponibilites} />
-        <div style={{margin: '1.2rem 0'}}>
+
+        <div className="captcha-row">
           <ReCAPTCHA
             sitekey="6LeqJHkrAAAAAGnVc8aL3A7hBd8HtNaLiRkYHSaw"
             onChange={handleCaptcha}
           />
         </div>
-        {error && <p className="form-error">{error}</p>}
-        {!submitted && <button type="submit">Envoyer ma candidature</button>}
-        {submitted && <p className="form-success">Merci pour votre candidature ! Nous vous contacterons rapidement.</p>}
+
+        {!submitted && (
+          <button type="submit" className="submit-btn">
+            Envoyer ma candidature
+          </button>
+        )}
       </form>
     </section>
   );
-} 
+}
