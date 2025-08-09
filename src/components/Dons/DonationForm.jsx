@@ -58,28 +58,28 @@ export default function DonationForm() {
       formRef.current,
       '1rYHPhS65bpP8ZSMH'
     )
-    .then(() => {
-      setSubmitted(true);
-      setForm({
-        prenom: '',
-        nom: '',
-        address: '',
-        email: '',
-        dons: { vetements: false, nourriture: false, hygiene: false },
-        description: '',
-        disponibilites: '',
-        telephone: '',
+      .then(() => {
+        setSubmitted(true);
+        setForm({
+          prenom: '',
+          nom: '',
+          address: '',
+          email: '',
+          dons: { vetements: false, nourriture: false, hygiene: false },
+          description: '',
+          disponibilites: '',
+          telephone: '',
+        });
+        setCaptcha(null);
+        if (formRef.current) formRef.current.reset();
+      })
+      .catch((err) => {
+        if (err && err.text) {
+          setError("Erreur lors de l'envoi : " + err.text + "réessayez plus tard.");
+        } else {
+          setError("Erreur lors de l'envoi, réessayez plus tard.");
+        }
       });
-      setCaptcha(null);
-      if (formRef.current) formRef.current.reset();
-    })
-    .catch((err) => {
-      if (err && err.text) {
-        setError("Erreur lors de l'envoi : " + err.text + "réessayez plus tard.");
-      } else {
-        setError("Erreur lors de l'envoi, réessayez plus tard.");
-      }
-    });
   }
 
   return (
@@ -202,7 +202,7 @@ export default function DonationForm() {
         <input type="hidden" name="dons_vetements" value={form.dons.vetements ? 'Oui' : 'Non'} />
         <input type="hidden" name="dons_nourriture" value={form.dons.nourriture ? 'Oui' : 'Non'} />
         <input type="hidden" name="dons_hygiene" value={form.dons.hygiene ? 'Oui' : 'Non'} />
-        <div style={{margin: '1.2rem 0'}}>
+        <div style={{ margin: '1.2rem 0' }}>
           <ReCAPTCHA
             sitekey="6LeqJHkrAAAAAGnVc8aL3A7hBd8HtNaLiRkYHSaw"
             onChange={handleCaptcha}

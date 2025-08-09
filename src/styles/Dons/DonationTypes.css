@@ -5,29 +5,36 @@
   border-bottom: 1.5px solid #222;
 }
 
-.donation-types-section h2 {
+/* ===== Titre (même taille que "Actions en tant que bénévole") ===== */
+.donation-types-title {
+  position: relative;
+  display: inline-block;
   font-size: 2.3rem;
   color: var(--text-dark);
-  margin-bottom: 2.5rem;
   font-weight: bold;
+  margin: 0 0 2.5rem;
+  font-family: var(--font-title, inherit);
 }
 
+/* Soulignement gradient sous le titre */
+.donation-types-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 92%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green), var(--yellow));
+  border-radius: 999px;
+}
+
+/* ===== Cartes ===== */
 .donation-types-cards {
   display: flex;
   gap: 2rem;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-.donation-type-img {
-  width: 100%;
-  max-width: 100%;
-  height: 180px;
-  object-fit: contain;
-  border-radius: 10px 10px 0 0;
-  background: #f7f7f7;
-  margin-bottom: 1rem;
-  display: block;
 }
 
 .donation-type-card {
@@ -37,20 +44,33 @@
   background: #f9f9f9;
   border-radius: 12px;
   padding: 2rem 1.5rem;
-  max-width: 420px;
-  min-width: 220px;
-  flex: 1 1 220px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 460px;
+  /* un peu plus large */
+  min-width: 240px;
+  flex: 1 1 240px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s, transform 0.3s;
   text-align: left;
   margin-bottom: 1.5rem;
 }
 
 .donation-type-card:hover {
-  box-shadow: 0 6px 15px rgba(0,0,0,0.10);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.10);
   transform: translateY(-5px);
 }
 
+/* Image — pas de background derrière */
+.donation-type-img {
+  width: 100%;
+  max-width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Titres / texte */
 .donation-type-card h3 {
   color: var(--text-dark);
   font-size: 1.3rem;
@@ -66,6 +86,7 @@
   text-align: justify;
 }
 
+/* ===== Bloc don financier ===== */
 .donation-financial-info {
   margin-top: 0.5rem;
   text-align: center;
@@ -88,33 +109,56 @@
   display: inline-block;
 }
 
+/* Bouton = même style que .hero-button */
 .donation-financial-btn {
-  display: inline-block;
-  background: var(--primary-green);
+  background: var(--primary-yellow);
   color: var(--text-dark);
+  padding: 0.75rem 1.8rem;
+  border-radius: var(--radius-l);
   font-weight: bold;
-  border: none;
-  border-radius: var(--radius-m);
-  padding: 0.7rem 1.5rem;
-  font-size: 1.05rem;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: background 0.2s, color 0.2s, transform 0.2s;
-  margin-top: 0;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  will-change: transform, box-shadow, background-position;
 }
 
 .donation-financial-btn:hover {
-  background: var(--primary-green-dark);
-  color: var(--text-dark);
-  transform: translateY(-2px) scale(1.04);
+  background: linear-gradient(90deg,
+      var(--primary-yellow) 0%,
+      #ffffff 80%,
+      var(--primary-yellow) 100%);
+  background-size: 200% 100%;
+  animation: hero-gradient-loop 2s linear infinite;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px) scale(1.02);
 }
 
+/* Focus visible (accessibilité) */
+.donation-financial-btn:focus-visible {
+  outline: 2px dashed var(--text-dark);
+  outline-offset: 3px;
+}
+
+/* Animation du gradient (même nom que sur la home) */
+@keyframes hero-gradient-loop {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 800px) {
   .donation-types-cards {
     flex-direction: column;
     align-items: center;
     gap: 1.2rem;
   }
+
   .donation-type-card {
     max-width: 98vw;
     min-width: 0;
@@ -126,8 +170,9 @@
     flex-direction: column;
     gap: 0.3rem;
   }
+
   .donation-financial-btn {
     width: 100%;
     text-align: center;
   }
-} 
+}

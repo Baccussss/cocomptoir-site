@@ -17,6 +17,7 @@ export default function BenevoleForm() {
     },
     motivation: '',
   });
+
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
   const [captcha, setCaptcha] = useState(null);
@@ -47,6 +48,7 @@ export default function BenevoleForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
     if (!captcha) {
       setError('Veuillez valider le CAPTCHA.');
       return;
@@ -85,7 +87,6 @@ export default function BenevoleForm() {
 
   return (
     <section className="benevole-form-section">
-      <div className="benevole-form-bg" aria-hidden="true" />
       <h2 className="benevole-form-title">Devenir bénévole</h2>
       <p className="benevole-form-desc">
         Rejoignez notre équipe de bénévoles et participez à nos actions solidaires.
@@ -93,11 +94,15 @@ export default function BenevoleForm() {
       </p>
 
       <form ref={formRef} className="benevole-form" onSubmit={handleSubmit}>
-        {/* Bandeau d’erreur */}
+        {/* Bandeaux d’état */}
         {error && <p className="form-banner form-banner--error">{error}</p>}
-        {/* Bandeau succès */}
-        {submitted && <p className="form-banner form-banner--success">Merci pour votre candidature ! Nous vous contacterons rapidement.</p>}
+        {submitted && (
+          <p className="form-banner form-banner--success">
+            Merci pour votre candidature ! Nous vous contacterons rapidement.
+          </p>
+        )}
 
+        {/* Champs principaux */}
         <div className="form-grid">
           <label className="field">
             <span className="field-label">Prénom</span>
@@ -162,51 +167,46 @@ export default function BenevoleForm() {
           </label>
         </div>
 
-   <div className="investissement-card">
-    <span className="investissement-title">Votre investissement</span>
+        {/* Bloc “Ce que vous souhaitez faire” — même logique visuelle que DonationForm */}
+        <div className="choice-row">
+          <span className="choice-label">Ce que vous souhaitez faire :</span>
 
-    <div className="field field--full" style={{marginBottom: '0.5rem'}}>
-      <span className="field-label">Ce que vous souhaitez faire</span>
-    </div>
+          <div className="choice-checkbox-row">
+            <label className="choice">
+              <span className="choice-text">Faire des permanences au local</span>
+              <input
+                type="checkbox"
+                name="permanences"
+                checked={form.investissement.permanences}
+                onChange={handleChange}
+              />
+            </label>
 
-    <div className="investissement-checkbox-row">
-      <label className="check">
-        <input
-          type="checkbox"
-          name="permanences"
-          checked={form.investissement.permanences}
-          onChange={handleChange}
-        />
-        <span className="check-box" aria-hidden="true"></span>
-        <span className="check-text">Faire des permanences au local</span>
-      </label>
-
-      <label className="check">
-        <input
-          type="checkbox"
-          name="collecte_dons"
-          checked={form.investissement.collecte_dons}
-          onChange={handleChange}
-        />
-        <span className="check-box" aria-hidden="true"></span>
-        <span className="check-text">Aider à chercher des dons</span>
-      </label>
-    </div>
-
-
-
-          <label className="field field--full">
-            <span className="field-label">Disponibilités régulières</span>
-            <input
-              type="text"
-              name="disponibilites"
-              value={form.investissement.disponibilites}
-              onChange={handleChange}
-              placeholder="Ex : mardis et jeudis après-midi, week-ends…"
-            />
-          </label>
+            <label className="choice">
+              <span className="choice-text">Aider à chercher des dons</span>
+              <input
+                type="checkbox"
+                name="collecte_dons"
+                checked={form.investissement.collecte_dons}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
         </div>
 
+        {/* Disponibilités */}
+        <label className="field field--full">
+          <span className="field-label">Disponibilités régulières</span>
+          <input
+            type="text"
+            name="disponibilites"
+            value={form.investissement.disponibilites}
+            onChange={handleChange}
+            placeholder="Ex : mardis et jeudis après‑midi, week‑ends…"
+          />
+        </label>
+
+        {/* Motivation */}
         <label className="field field--full">
           <span className="field-label">Motivation</span>
           <textarea
@@ -214,7 +214,7 @@ export default function BenevoleForm() {
             value={form.motivation}
             onChange={handleChange}
             rows={4}
-            placeholder="Parlez-nous de votre motivation et de ce qui vous intéresse dans le bénévolat…"
+            placeholder="Parlez‑nous de votre motivation et de ce qui vous intéresse dans le bénévolat…"
             required
           />
         </label>
@@ -224,6 +224,7 @@ export default function BenevoleForm() {
         <input type="hidden" name="collecte_dons" value={form.investissement.collecte_dons ? 'Oui' : 'Non'} />
         <input type="hidden" name="disponibilites" value={form.investissement.disponibilites} />
 
+        {/* CAPTCHA + bouton plein largeur dessous */}
         <div className="captcha-row">
           <ReCAPTCHA
             sitekey="6LeqJHkrAAAAAGnVc8aL3A7hBd8HtNaLiRkYHSaw"
@@ -232,7 +233,7 @@ export default function BenevoleForm() {
         </div>
 
         {!submitted && (
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-btn submit-btn--full">
             Envoyer ma candidature
           </button>
         )}

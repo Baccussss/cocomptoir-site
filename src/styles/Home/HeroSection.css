@@ -28,7 +28,8 @@
   font-family: var(--font-main);
   line-height: 1.5;
   position: relative;
-  z-index: 2; /* au-dessus de Ravi */
+  z-index: 2;
+  /* au-dessus de Ravi */
 }
 
 @media (min-width: 960px) {
@@ -51,7 +52,7 @@
   color: var(--text-dark);
   background: linear-gradient(90deg, var(--primary-yellow), #f7ffbd);
   border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* ===== Titre & description ===== */
@@ -75,10 +76,10 @@
   margin: 0;
   padding: 1rem 1rem;
   margin-bottom: 50px;
-  background: rgba(255,255,255,.55);
-  border: 1px solid rgba(0,0,0,.06);
+  background: rgba(255, 255, 255, .55);
+  border: 1px solid rgba(0, 0, 0, .06);
   border-radius: 16px;
-  box-shadow: 0 8px 26px rgba(0,0,0,.08);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, .08);
   backdrop-filter: blur(2px);
   line-height: 1.7;
 }
@@ -100,7 +101,8 @@
   gap: var(--spacing-m);
   margin-top: var(--spacing-m);
   position: relative;
-  z-index: 2; /* au-dessus de Ravi */
+  z-index: 2;
+  /* au-dessus de Ravi */
 }
 
 @media (min-width: 960px) {
@@ -119,21 +121,19 @@
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   will-change: transform, box-shadow, background-position;
 }
 
 /* Hover = même style que l’autre composant + dégradé animé */
 .hero-button:hover {
-  background: linear-gradient(
-    90deg,
-    var(--primary-yellow) 0%,
-    #ffffff 80%,
-    var(--primary-yellow) 100%
-  );
+  background: linear-gradient(90deg,
+      var(--primary-yellow) 0%,
+      #ffffff 80%,
+      var(--primary-yellow) 100%);
   background-size: 200% 100%;
   animation: hero-gradient-loop 2s linear infinite;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px) scale(1.02);
 }
 
@@ -149,8 +149,13 @@
 
 /* Animation du gradient */
 @keyframes hero-gradient-sweep {
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 /* ===== Carousel / visuel ===== */
@@ -187,11 +192,12 @@
 .hero-decoration {
   position: absolute;
   bottom: 0.2rem;
-  left: 43%;
+  left: 40%;
   transform: translateX(-50%);
   width: 180px;
   height: auto;
-  z-index: 0; /* derrière le texte et les boutons */
+  z-index: 2;
+  /* derrière le texte et les boutons */
 }
 
 .hero-decoration img {
@@ -239,7 +245,7 @@
 
 /* Pagination */
 .swiper-pagination-bullet {
-  background: rgba(0,0,0,0.25);
+  background: rgba(0, 0, 0, 0.25);
   opacity: 1;
 }
 

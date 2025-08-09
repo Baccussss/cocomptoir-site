@@ -8,7 +8,6 @@
   overflow: hidden;
 }
 
-
 /* ===== Titre ===== */
 .benevole-form-title {
   position: relative;
@@ -19,8 +18,6 @@
   font-weight: 800;
   font-family: var(--font-title);
 }
-
-
 
 /* ===== Intro ===== */
 .benevole-form-desc {
@@ -38,15 +35,15 @@
 .benevole-form {
   max-width: min(1200px, 92vw);
   margin: 0 auto;
-  background: #fff;
+  background: rgba(255, 255, 255, .82);
   border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   align-items: stretch;
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* ===== Bannières état ===== */
@@ -95,10 +92,9 @@
   font-weight: 700;
   color: var(--text-dark);
   font-size: .98rem;
-  
-
 }
 
+/* Inputs / Textarea */
 .benevole-form input[type="text"],
 .benevole-form input[type="email"],
 .benevole-form input[type="number"],
@@ -128,60 +124,45 @@
   line-height: 1.55;
 }
 
-/* ===== Investissement (block) ===== */
-.investissement-card {
-  border-radius: 16px;
-  border: 1px dashed rgba(0,0,0,.18);
-  padding: 1rem;
+/* ===== “Ce que vous souhaitez faire” (même style visuel que DonationForm) ===== */
+.choice-row {
   display: flex;
-  flex-direction: column;
-  gap: .9rem;
-  background: rgba(255,255,255,.55);
+  align-items: center;
+  gap: 1.5rem;
+  margin: .2rem 0 1rem;
+  flex-wrap: wrap;
 }
 
-.investissement-title {
-  align-self: flex-start;
-  font-weight: 800;
-  font-size: .95rem;
+.choice-label {
   color: var(--text-dark);
-  background: linear-gradient(90deg, var(--primary-yellow), #f7ffbd);
-  padding: .3rem .6rem;
-  border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.06);
-}
-
-.investissement-subtitle {
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: var(--text-dark);
-  margin: 0.5rem 0 1rem 0;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-right: 1rem;
+  flex-shrink: 0;
   text-align: left;
 }
 
-.investissement-checkbox-row {
+.choice-checkbox-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 1.6rem;
-}
-
-
-
-/* Réduit l'espace entre le texte et les checkboxs */
-.investissement-card .investissement-checkbox-row {
-  margin-top: -0.9rem;
-}
-
-
-/* ===== Checkbox custom ===== */
-.check {
-  display: inline-flex;
   align-items: center;
-  gap: .55rem;
-  cursor: pointer;
-  user-select: none;
+  gap: 1.2rem 2rem;
+  flex-wrap: wrap;
 }
 
-.check input {
+.choice {
+  display: inline-flex;
+  /* force texte + case sur une ligne */
+  flex-direction: row;
+  /* texte puis case à droite */
+  align-items: center;
+  gap: .6rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  white-space: nowrap;
+  /* évite les retours à la ligne à l’intérieur d’un label */
+}
+
+.choice input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
   width: 22px;
@@ -189,54 +170,41 @@
   border: 2px solid var(--primary-green);
   border-radius: 6px;
   background: #fff;
+  cursor: pointer;
+  transition: border .2s, box-shadow .2s, background .2s;
   position: relative;
-  margin: 0;
-  transition: border-color .2s, box-shadow .2s, background .2s;
-  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  vertical-align: middle;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
 }
 
-.check input:hover {
+.choice input[type="checkbox"]:hover {
   border-color: var(--primary-green-dark);
-  box-shadow: 0 0 0 2px rgba(76,175,80,.15);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, .15);
 }
 
-.check input:checked {
+.choice input[type="checkbox"]:checked {
   background: var(--primary-green);
   border-color: var(--primary-green-dark);
 }
 
-.check-box {
-  position: absolute; /* visuel géré par l’input, span décoratif pour la structure */
-  width: 0; height: 0; overflow: hidden;
+/* pas de coche blanche interne */
+.choice input[type="checkbox"]:checked::after {
+  content: none;
 }
 
-.check input:checked::after {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: 2px;
-  width: 6px;
-  height: 12px;
-  border: solid var(--text-dark);
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
-}
-
-.check-text {
-  color: var(--text-dark);
-  font-size: 1.04rem;
-  font-weight: 500;
+.choice input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 2px var(--primary-green);
 }
 
 /* ===== Captcha & bouton ===== */
 .captcha-row {
   margin: .6rem 0 .2rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  /* à gauche */
 }
 
 .submit-btn {
-  align-self: center;
   background: var(--primary-yellow);
   color: var(--text-dark);
   border: 2px solid var(--text-dark);
@@ -247,21 +215,31 @@
   cursor: pointer;
   margin-top: .6rem;
   transition: transform .2s ease, box-shadow .2s ease, background-position .3s linear;
-  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
 }
 
-/* hover = dégradé animé (cohérent avec tes autres boutons) */
 .submit-btn:hover {
   background: linear-gradient(90deg, var(--primary-yellow) 0%, #ffffff 80%, var(--primary-yellow) 100%);
   background-size: 200% 100%;
   animation: btn-gradient-loop 1.8s linear infinite;
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 16px rgba(0,0,0,.12);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .12);
+}
+
+.submit-btn--full {
+  width: 100%;
+  /* plein largeur sous le CAPTCHA */
+  align-self: stretch;
 }
 
 @keyframes btn-gradient-loop {
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 /* ===== Responsive ===== */
@@ -270,13 +248,18 @@
     grid-template-columns: 1fr;
     gap: 12px;
   }
+
   .benevole-form {
     padding: 1.6rem 1rem;
   }
 }
 
 @media (max-width: 560px) {
-  .benevole-form-title { font-size: 2rem; }
-  .benevole-form-desc { font-size: 1.05rem; }
-  .submit-btn { width: 100%; }
+  .benevole-form-title {
+    font-size: 2rem;
+  }
+
+  .benevole-form-desc {
+    font-size: 1.05rem;
+  }
 }

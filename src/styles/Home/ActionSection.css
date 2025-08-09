@@ -4,10 +4,17 @@
   padding: 3rem 2rem;
   text-align: center;
   border-bottom: 2px solid black;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* (optionnel) décor si tu l’utilises dans le JSX */
+.action-bg {
+  display: none;
 }
 
 /* ===== Titre avec soulignement animé ===== */
-.action-section h2 {
+.action-title {
   margin-top: 2rem;
   margin-bottom: 4rem;
   font-weight: bold;
@@ -17,7 +24,7 @@
   display: inline-block;
 }
 
-.action-section h2::after {
+.action-title::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -32,27 +39,50 @@
 }
 
 @keyframes underline-sweep {
-  0% { transform: translateX(-50%) scaleX(0); }
-  100% { transform: translateX(-50%) scaleX(1); }
+  0% {
+    transform: translateX(-50%) scaleX(0);
+  }
+
+  100% {
+    transform: translateX(-50%) scaleX(1);
+  }
 }
 
-/* ===== GRID - 3 colonnes plus larges ===== */
+/* ===== GRID responsive compact ===== */
 .action-section .actions-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(340px, 1fr)) !important; /* largeur mini augmentée */
+  display: grid;
+  /* largeur mini réduite pour garder 3 cartes le plus longtemps possible */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
   max-width: 1300px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.action-section .actions-grid > * {
+.action-section .actions-grid>* {
   min-width: 0;
+  /* évite l’overflow du contenu interne */
 }
 
-/* Sous 720px, 1 colonne */
+/* Forcer exactement 3 colonnes sur grands écrans */
+@media (min-width: 1024px) {
+  .action-section .actions-grid {
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+  }
+}
+
+/* 2 colonnes sur viewport moyen */
+@media (max-width: 840px) {
+  .action-section .actions-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+/* 1 colonne sous 720px */
 @media (max-width: 720px) {
   .action-section .actions-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -60,10 +90,12 @@
 .action-card {
   background-color: #f9f9f9;
   border-radius: 12px;
-  padding: 2.5rem 2rem; /* padding augmenté */
+  padding: 2.5rem 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
   min-width: 0;
+  /* évite les débordements */
+  text-align: left;
 }
 
 .action-card:hover {
@@ -72,10 +104,20 @@
   transform: translateY(-5px);
 }
 
+/* Décors facultatifs présents dans le JSX */
+.card-accent {
+  display: none;
+}
+
+.icon-pill {
+  display: block;
+}
+
 /* ===== Images ===== */
+/* On ne touche pas à la taille définie */
 .action-icon {
-  width: 300px; /* largeur augmentée */
-  height: 160px; /* hauteur augmentée */
+  width: 300px;
+  height: 160px;
   object-fit: contain;
   max-width: 100%;
   margin-bottom: 2rem;
@@ -85,17 +127,21 @@
 }
 
 /* ===== Titres & texte ===== */
+.action-card .card-title,
 .action-card h3 {
   font-weight: 700;
   margin-bottom: 0.75rem;
   color: var(--text-dark);
-  font-size: 1.6rem; /* léger boost */
+  font-size: 1.6rem;
+  text-align: center;
 }
 
+.action-card .card-desc,
 .action-card p {
   color: #333;
   line-height: 1.7;
-  font-size: 1.15rem; /* léger boost */
+  font-size: 1.15rem;
+  text-align: justify;
 }
 
 /* ===== Bouton ===== */
@@ -106,29 +152,36 @@
   color: var(--text-dark);
   font-weight: bold;
   border-radius: var(--radius-m);
-  padding: 0.8rem 1.6rem; /* padding légèrement augmenté */
+  padding: 0.8rem 1.6rem;
   font-size: 1.1rem;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
 .action-btn:hover {
-/* Hover = même style que l’autre composant + dégradé animé */
-  background: linear-gradient(
-    90deg,
-    var(--primary-yellow) 0%,
-    #ffffff 80%,
-    var(--primary-yellow) 100%
-  );
+  background: linear-gradient(90deg,
+      var(--primary-yellow) 0%,
+      #ffffff 80%,
+      var(--primary-yellow) 100%);
   background-size: 200% 100%;
   animation: hero-gradient-loop 2s linear infinite;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px) scale(1.02);
 }
-
 
 .action-btn:focus-visible {
   outline: 2px dashed var(--text-dark);
   outline-offset: 3px;
+}
+
+/* Animation partagée par d’autres boutons du site */
+@keyframes hero-gradient-loop {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
 }
