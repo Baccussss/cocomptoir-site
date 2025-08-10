@@ -30,13 +30,19 @@
   object-fit: cover;
   border-radius: 20px;
   background: #ededed;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 900px) {
+  .precarite-left {
+    display: none;
+  }
 }
 
 .precarite-img:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
 }
 
 /* ===== Texte ===== */
@@ -68,7 +74,7 @@
   color: #222;
   line-height: 1.6;
   text-align: left;
-  box-shadow: inset 0 0 8px rgba(0,0,0,0.03);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.03);
 }
 
 .precarite-desc ul {
@@ -89,7 +95,7 @@
   background: #fff;
   padding: 1.2rem 1rem;
   border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,7 +108,7 @@
   font-weight: bold;
   color: var(--primary-green);
   -webkit-text-stroke: 3px var(--text-dark);
-   paint-order: stroke fill;
+  paint-order: stroke fill;
   margin-bottom: 0.4rem;
 }
 
@@ -119,23 +125,31 @@
     gap: 2.5rem;
     align-items: center;
   }
-  .precarite-left, .precarite-right {
+
+  .precarite-left,
+  .precarite-right {
     align-items: center;
     justify-content: center;
     width: 100%;
   }
-  .precarite-title, .precarite-desc, .precarite-stat-text {
+
+  .precarite-title,
+  .precarite-desc,
+  .precarite-stat-text {
     text-align: center;
   }
+
   .precarite-img {
     max-width: 80vw;
     min-width: 120px;
   }
+
   .precarite-stats-row {
     flex-direction: column;
     gap: 1.2rem;
     align-items: center;
   }
+
   .precarite-stat {
     width: 100%;
     max-width: 280px;

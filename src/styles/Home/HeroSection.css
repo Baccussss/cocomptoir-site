@@ -13,7 +13,13 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-xl) var(--spacing-xl);
+    padding: var(--spacing-xl) 3vw;
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-container {
+    padding: var(--spacing-xl) 7vw;
   }
 }
 
@@ -172,6 +178,7 @@
   transition: box-shadow 0.3s ease;
 }
 
+
 @media (min-width: 960px) {
   .hero-carousel {
     margin-top: 0;
@@ -194,11 +201,18 @@
   bottom: 0.2rem;
   left: 40%;
   transform: translateX(-50%);
-  width: 180px;
+  width: 145px;
   height: auto;
   z-index: 2;
   /* derrière le texte et les boutons */
 }
+
+@media (max-width: 1400px) {
+  .hero-decoration {
+    display: none;
+  }
+}
+
 
 .hero-decoration img {
   width: 100%;

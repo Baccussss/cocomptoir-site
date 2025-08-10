@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/A_Propos/PresentationSection.css';
-import ekip from '../../assets/images/ekip.png';
+import ekip from '../../assets/images/ekip.jpg';
 
 const PresentationSection = () => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/Local/LocalInfo.css';
-import localPhoto from '../../assets/images/local1.png';
+import localPhoto from '../../assets/images/local1.jpg';
 
 const LocalInfos = () => {
   return (

@@ -5,6 +5,7 @@ import Milla from '../../assets/teteBureau/Milla.jpg';
 import Ernest from '../../assets/teteBureau/Ernest.jpg';
 import Noe from '../../assets/teteBureau/Noe.jpg';
 import Noa from '../../assets/teteBureau/Noa.jpg';
+import Yanis from '../../assets/teteBureau/Yanis.jpeg';
 
 const membres = [
   {
@@ -41,7 +42,7 @@ const membres = [
     nom: 'Yanis Gallard',
     role: 'Responsable technique',
     desc: 'Administrateur du site internet pour garantir son bon fonctionnement',
-    photo: null,
+    photo: Yanis,
   },
 ];
 

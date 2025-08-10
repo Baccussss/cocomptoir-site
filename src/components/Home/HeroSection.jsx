@@ -6,9 +6,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '../../styles/Home/HeroSection.css';
 
-import photo1 from '../../assets/images/local2.png';
-import photo2 from '../../assets/images/local2.png';
-import photo3 from '../../assets/images/local3.png';
+import photo1 from '../../assets/images/local2.jpg';
+import photo2 from '../../assets/images/local2.jpg';
+import photo3 from '../../assets/images/local3.jpg';
 
 import bonhommeRavi from '../../assets/bonhommes/bonhommeravi.png';
 
