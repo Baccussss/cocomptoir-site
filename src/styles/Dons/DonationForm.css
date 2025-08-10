@@ -46,7 +46,7 @@
   gap: 1.2rem;
   align-items: stretch;
   border: 1px solid rgba(0, 0, 0, .10);
-  backdrop-filter: blur(2px);
+  /* backdrop-filter: blur(2px); */
 }
 
 /* Rangée 2 colonnes (Prénom/Nom) */
@@ -84,6 +84,7 @@
   background: #fff;
   color: var(--text-dark);
   transition: border-color .25s, box-shadow .25s, transform .02s;
+  will-change: border-color, box-shadow;
 }
 
 /* Focus */
@@ -156,6 +157,7 @@
 .donation-checkbox-row input[type="checkbox"]:hover {
   border-color: var(--primary-green-dark, #388e3c);
   box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.15);
+  will-change: border-color, box-shadow;
 }
 
 .donation-checkbox-row input[type="checkbox"]:checked {
@@ -237,6 +239,7 @@
   animation: hero-gradient-loop 2s linear infinite;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px) scale(1.02);
+  will-change: transform, box-shadow, background-position;
 }
 
 .donation-form button[type="submit"]:focus-visible {
@@ -305,8 +308,10 @@
   flex-direction: row !important;
   align-items: center;
   gap: .6rem;
+  font-weight: 600;
+  color: var(--text-dark);
   white-space: nowrap;
-  /* optional, prevents wrapping inside a label */
+  /* évite les retours à la ligne à l'intérieur d'un label */
 }
 
 /* container keeps them in a row */

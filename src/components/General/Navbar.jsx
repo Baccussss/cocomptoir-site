@@ -12,14 +12,22 @@ export default function Navbar() {
         window.scrollTo(0, 0);
     };
 
-    // Barre de progression de scroll
+    // Barre de progression de scroll optimisée
     useEffect(() => {
+        let ticking = false;
+        
         const handleScroll = () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-            const bar = document.getElementById('scroll-progress');
-            if (bar) bar.style.width = pct + '%';
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrollTop = window.scrollY;
+                    const docHeight = document.body.scrollHeight - window.innerHeight;
+                    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                    const bar = document.getElementById('scroll-progress');
+                    if (bar) bar.style.width = pct + '%';
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -35,12 +43,12 @@ export default function Navbar() {
             <nav className="navbar" role="navigation" aria-label="Navigation principale">
                 <div className="navbar-left">
                     <NavLink to="/" onClick={handleLinkClick} className="logo-link" end>
-                        <img src={logo} alt="Logo CoComptoir" className="logo" />
+                        <img src={logo} alt="Logo CoComptoir" className="logo" loading="eager" />
                     </NavLink>
                 </div>
 
                 <div className="navbar-image" aria-hidden="true">
-                    <img src={tablebonhomme} alt="Table Bonhomme" />
+                    <img src={tablebonhomme} alt="Table Bonhomme" loading="lazy" />
                 </div>
 
                 <button

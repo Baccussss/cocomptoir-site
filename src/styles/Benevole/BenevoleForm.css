@@ -46,28 +46,7 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* ===== Bannières état ===== */
-.form-banner {
-  margin: .2rem 0 .6rem;
-  padding: .8rem 1rem;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 1rem;
-  text-align: left;
-  border: 1px solid transparent;
-}
 
-.form-banner--error {
-  color: #7a0b0b;
-  background: #ffe7e7;
-  border-color: #ffcccc;
-}
-
-.form-banner--success {
-  color: #204a10;
-  background: #e7f8e7;
-  border-color: #c9efc9;
-}
 
 /* ===== Grille champs ===== */
 .form-grid {
@@ -204,7 +183,8 @@
   /* à gauche */
 }
 
-.submit-btn {
+/* ===== Bouton et messages ===== */
+.benevole-form button[type="submit"] {
   background: var(--primary-yellow);
   color: var(--text-dark);
   border: 2px solid var(--text-dark);
@@ -213,33 +193,54 @@
   font-size: 1.12rem;
   font-weight: 800;
   cursor: pointer;
-  margin-top: .6rem;
-  transition: transform .2s ease, box-shadow .2s ease, background-position .3s linear;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
-}
-
-.submit-btn:hover {
-  background: linear-gradient(90deg, var(--primary-yellow) 0%, #ffffff 80%, var(--primary-yellow) 100%);
-  background-size: 200% 100%;
-  animation: btn-gradient-loop 1.8s linear infinite;
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, .12);
-}
-
-.submit-btn--full {
+  transition: all .3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  will-change: transform, box-shadow, background-position;
+  margin-top: .4rem;
   width: 100%;
-  /* plein largeur sous le CAPTCHA */
   align-self: stretch;
 }
 
-@keyframes btn-gradient-loop {
+.benevole-form button[type="submit"]:hover {
+  background: linear-gradient(90deg,
+      var(--primary-yellow) 0%,
+      #ffffff 80%,
+      var(--primary-yellow) 100%);
+  background-size: 200% 100%;
+  animation: hero-gradient-loop 2s linear infinite;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px) scale(1.02);
+  will-change: transform, box-shadow, background-position;
+}
+
+.benevole-form button[type="submit"]:focus-visible {
+  outline: 2px dashed var(--text-dark);
+  outline-offset: 3px;
+}
+
+@keyframes hero-gradient-loop {
   0% {
     background-position: 0% 50%;
   }
 
   100% {
-    background-position: 100% 50%;
+    background-position: 200% 50%;
   }
+}
+
+/* ===== Messages ===== */
+.form-error {
+  color: #d32f2f;
+  font-weight: 700;
+  margin: .3rem 0 .2rem;
+  font-size: 1rem;
+}
+
+.form-success {
+  color: var(--primary-green-dark);
+  font-weight: 700;
+  margin: .6rem 0 0;
+  font-size: 1.05rem;
 }
 
 /* ===== Responsive ===== */

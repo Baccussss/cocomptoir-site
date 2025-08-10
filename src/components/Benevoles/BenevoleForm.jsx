@@ -95,12 +95,8 @@ export default function BenevoleForm() {
 
       <form ref={formRef} className="benevole-form" onSubmit={handleSubmit}>
         {/* Bandeaux d’état */}
-        {error && <p className="form-banner form-banner--error">{error}</p>}
-        {submitted && (
-          <p className="form-banner form-banner--success">
-            Merci pour votre candidature ! Nous vous contacterons rapidement.
-          </p>
-        )}
+        {/* Messages d'état */}
+        {error && <p className="form-error">{error}</p>}
 
         {/* Champs principaux */}
         <div className="form-grid">
@@ -136,7 +132,7 @@ export default function BenevoleForm() {
               value={form.age}
               onChange={handleChange}
               required
-              min="16"
+              min="1"
               max="100"
               placeholder="Votre âge"
             />
@@ -232,11 +228,8 @@ export default function BenevoleForm() {
           />
         </div>
 
-        {!submitted && (
-          <button type="submit" className="submit-btn submit-btn--full">
-            Envoyer ma candidature
-          </button>
-        )}
+        {!submitted && <button type="submit">Envoyer ma candidature</button>}
+        {submitted && <p className="form-success">Merci pour votre candidature ! Nous vous contacterons rapidement.</p>}
       </form>
     </section>
   );

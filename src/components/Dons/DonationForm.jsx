@@ -1,10 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback, useMemo } from 'react';
 import emailjs from '@emailjs/browser';
-import ReCAPTCHA from 'react-google-recaptcha';
+import LazyReCAPTCHA from './LazyReCAPTCHA';
 import '../../styles/Dons/DonationForm.css'
 
 export default function DonationForm() {
-  const [form, setForm] = useState({
+  const initialFormState = useMemo(() => ({
     prenom: '',
     nom: '',
     address: '',
@@ -17,27 +17,29 @@ export default function DonationForm() {
     description: '',
     disponibilites: '',
     telephone: '',
-  });
+  }), []);
+
+  const [form, setForm] = useState(initialFormState);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
   const [captcha, setCaptcha] = useState(null);
   const formRef = useRef();
 
-  function handleChange(e) {
+  const handleChange = useCallback((e) => {
     const { name, value, checked } = e.target;
     if (name in form.dons) {
-      setForm({
-        ...form,
-        dons: { ...form.dons, [name]: checked },
-      });
+      setForm(prev => ({
+        ...prev,
+        dons: { ...prev.dons, [name]: checked },
+      }));
     } else {
-      setForm({ ...form, [name]: value });
+      setForm(prev => ({ ...prev, [name]: value }));
     }
-  }
+  }, [form.dons]);
 
-  function handleCaptcha(value) {
+  const handleCaptcha = useCallback((value) => {
     setCaptcha(value);
-  }
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -60,16 +62,7 @@ export default function DonationForm() {
     )
       .then(() => {
         setSubmitted(true);
-        setForm({
-          prenom: '',
-          nom: '',
-          address: '',
-          email: '',
-          dons: { vetements: false, nourriture: false, hygiene: false },
-          description: '',
-          disponibilites: '',
-          telephone: '',
-        });
+        setForm(initialFormState);
         setCaptcha(null);
         if (formRef.current) formRef.current.reset();
       })
@@ -85,7 +78,7 @@ export default function DonationForm() {
   return (
     <section className="donation-form-section">
       <h2>Faire un don</h2>
-      <p className="donation-form-desc">Après avoir rempli ce formulaire, nous vous recontacterons pour convenir d’un horaire et nous viendrons récupérer les produits chez vous.</p>
+      <p className="donation-form-desc">Après avoir rempli ce formulaire, nous vous recontacterons pour convenir d'un horaire et nous viendrons récupérer les produits chez vous.</p>
       <form ref={formRef} className="donation-form full-width-form" onSubmit={handleSubmit}>
         <div className="form-row">
           <label>
@@ -148,7 +141,7 @@ export default function DonationForm() {
           <span className="donation-type-label">Type(s) de don :</span>
           <div className="donation-checkbox-row">
             <label>
-              Vêtements
+              <span>Vêtements</span>
               <input
                 type="checkbox"
                 name="vetements"
@@ -157,7 +150,7 @@ export default function DonationForm() {
               />
             </label>
             <label>
-              Nourriture
+              <span>Nourriture</span>
               <input
                 type="checkbox"
                 name="nourriture"
@@ -166,7 +159,7 @@ export default function DonationForm() {
               />
             </label>
             <label>
-              Produits d’hygiène
+              <span>Produits d'hygiène</span>
               <input
                 type="checkbox"
                 name="hygiene"
@@ -202,12 +195,10 @@ export default function DonationForm() {
         <input type="hidden" name="dons_vetements" value={form.dons.vetements ? 'Oui' : 'Non'} />
         <input type="hidden" name="dons_nourriture" value={form.dons.nourriture ? 'Oui' : 'Non'} />
         <input type="hidden" name="dons_hygiene" value={form.dons.hygiene ? 'Oui' : 'Non'} />
-        <div style={{ margin: '1.2rem 0' }}>
-          <ReCAPTCHA
-            sitekey="6LeqJHkrAAAAAGnVc8aL3A7hBd8HtNaLiRkYHSaw"
-            onChange={handleCaptcha}
-          />
-        </div>
+        <LazyReCAPTCHA
+          sitekey="6LeqJHkrAAAAAGnVc8aL3A7hBd8HtNaLiRkYHSaw"
+          onChange={handleCaptcha}
+        />
         {error && <p className="form-error">{error}</p>}
         {!submitted && <button type="submit">Envoyer</button>}
         {submitted && <p className="form-success">Merci pour votre don ! Nous vous contacterons rapidement.</p>}

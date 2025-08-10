@@ -36,11 +36,14 @@ const HeroSection = () => {
             <div className="hero-carousel">
                 <Swiper
                     autoplay={{ delay: 5000, disableOnInteraction: false }}
-                    pagination={{ clickable: true }}     // Pagination visible
+                    pagination={{ clickable: true }}
                     navigation={true}
                     modules={[Autoplay, Pagination, Navigation]}
                     spaceBetween={20}
                     slidesPerView={1}
+                    speed={400}
+                    lazy={true}
+                    preloadImages={false}
                 >
                     <SwiperSlide><img src={photo1} alt="Action CoComptoir 1" className="hero-image" /></SwiperSlide>
                     <SwiperSlide><img src={photo2} alt="Action CoComptoir 2" className="hero-image" /></SwiperSlide>
@@ -48,7 +51,7 @@ const HeroSection = () => {
                 </Swiper>
             </div>
             <div className="hero-decoration">
-                <img src={bonhommeRavi} alt="Décoration CoComptoir" />
+                <img src={bonhommeRavi} alt="Décoration CoComptoir" loading="lazy" />
             </div>
         </section>
     );

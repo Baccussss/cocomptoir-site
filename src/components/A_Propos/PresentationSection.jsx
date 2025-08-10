@@ -27,7 +27,7 @@ const PresentationSection = () => {
 
         <div className="presentation-right">
           <figure className="presentation-figure">
-            <img src={ekip} alt="Conseil CoComptoir" className="presentation-img" />
+            <img src={ekip} alt="Conseil CoComptoir" className="presentation-img" loading="lazy" />
           </figure>
         </div>
       </div>
