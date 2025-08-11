@@ -7,8 +7,6 @@ import 'swiper/css/navigation';
 import '../../styles/Home/HeroSection.css';
 
 import photo1 from '../../assets/images/local2.jpg';
-import photo2 from '../../assets/images/local2.jpg';
-import photo3 from '../../assets/images/local3.jpg';
 
 import bonhommeRavi from '../../assets/bonhommes/bonhommeravi.png';
 
@@ -35,19 +33,14 @@ const HeroSection = () => {
 
             <div className="hero-carousel">
                 <Swiper
-                    autoplay={{ delay: 5000, disableOnInteraction: false }}
                     pagination={{ clickable: true }}
                     navigation={true}
-                    modules={[Autoplay, Pagination, Navigation]}
+                    modules={[Pagination, Navigation]}
                     spaceBetween={20}
                     slidesPerView={1}
                     speed={400}
-                    lazy={true}
-                    preloadImages={false}
                 >
                     <SwiperSlide><img src={photo1} alt="Action CoComptoir 1" className="hero-image" /></SwiperSlide>
-                    <SwiperSlide><img src={photo2} alt="Action CoComptoir 2" className="hero-image" /></SwiperSlide>
-                    <SwiperSlide><img src={photo3} alt="Action CoComptoir 3" className="hero-image" /></SwiperSlide>
                 </Swiper>
             </div>
             <div className="hero-decoration">

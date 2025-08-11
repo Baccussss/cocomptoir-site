@@ -9,7 +9,7 @@ const steps = [
     },
     {
         title: "Où et quand redistribuons-nous les dons ?",
-        description: "Les produits sont mis à disposition des étudiants dans notre local solidaire. Les horaires d’ouverture sont disponibles sur la page Local ou sur nos réseaux sociaux."
+        description: "Les produits sont mis à disposition des étudiant·es dans notre local solidaire. Les horaires d’ouverture sont disponibles sur la page Local ou sur nos réseaux sociaux."
     }
 ];
 
@@ -22,9 +22,9 @@ export default function ProcessSection() {
                 </div>
                 <div className="process-text">
                     <h2>Découvrez notre processus de collecte et redistribution</h2>
-                    <p>Chez CoComptoir, chaque don compte. Nous facilitons la collecte et la redistribution de produits essentiels pour soutenir les étudiants dans le besoin.</p>
+                    <p>Chez CoComptoir, chaque don compte. Nous facilitons la collecte et la redistribution de produits essentiels pour soutenir les étudiant·es dans le besoin.</p>
                 </div>
-                
+
             </div>
 
             <div className="process-steps">

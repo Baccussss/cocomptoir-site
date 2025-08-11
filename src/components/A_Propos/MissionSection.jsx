@@ -10,7 +10,7 @@ const MissionSection = () => {
         <h2 className="mission-title">Notre Mission</h2>
         <img src={conseilImg} alt="Conseil CoComptoir" className="mission-img" />
         <p className="mission-text">
-          CoComptoir s'engage à lutter contre la précarité et l'isolement des étudiants en leur offrant un accès gratuit à des produits essentiels et en leur proposant un espace solidaire où chacun peut se sentir soutenu et valorisé.
+          CoComptoir s'engage à lutter contre la précarité et l'isolement des étudiant·es en leur offrant un accès gratuit à des produits essentiels et en leur proposant un espace solidaire où chacun peut se sentir soutenu et valorisé.
         </p>
       </div>
     </section>

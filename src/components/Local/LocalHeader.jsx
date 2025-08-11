@@ -15,9 +15,9 @@ const LocalHeader = () => {
         />
 
         <p className="local-header-text">
-          Un lieu chaleureux, solidaire et ouvert à tous les étudiants !<br />
+          Un lieu chaleureux, solidaire et ouvert à tous les étudiant·es !<br />
           Viens partager un café, discuter, t’informer ou simplement te poser dans une ambiance bienveillante.
-          Ici, chaque étudiant·e est le·la bienvenu·e.
+          Ici, chaque étudiant·e est le·a bienvenue.
         </p>
       </div>
     </section>

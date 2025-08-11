@@ -15,19 +15,19 @@ export default function DonationTypes() {
         <article className="donation-type-card">
           <img src={vetementsImg} alt="Vêtements" className="donation-type-img" />
           <h3>Vêtements</h3>
-          <p>Les vêtements oubliés dans vos armoires peuvent encore servir ! Nous collectons des vêtements propres et en bon état pour les redistribuer à des étudiants dans le besoin : T-shirt, pantalon, vêtements de sport ou même blouse que vous n'utilisez plus, si ils ne sont pas abîmés ils peuvent trouver un nouveau propriétaire. Indiquez pour chaque vêtements dans le formulaire de don (en bas de la page) son type et sa taille.</p>
+          <p>Les vêtements oubliés dans vos armoires peuvent encore servir ! Nous collectons des vêtements propres et en bon état pour les redistribuer à des étudiant·es dans le besoin : T-shirt, pantalon, vêtements de sport ou même blouse que vous n'utilisez plus, si ils ne sont pas abîmés ils peuvent trouver un nouveau propriétaire. Indiquez pour chaque vêtements dans le formulaire de don (en bas de la page) son type et sa taille.</p>
         </article>
 
         <article className="donation-type-card">
           <img src={nourritureImg} alt="Nourriture" className="donation-type-img" />
           <h3>Nourriture</h3>
-          <p>Faites un geste à votre échelle en faveur de la sécurité alimentaire des étudiants en donnant des denrées non périssables : pâtes, riz, conserves, etc. Tout cela nous intéresse et sera redistribué aux étudiants qui en ont besoin dans notre local convivial ! Les emballages doivent être intactes. Dites nous dans le formulaire de don le type de produit et la quantité.</p>
+          <p>Faites un geste à votre échelle en faveur de la sécurité alimentaire des étudiant·es en donnant des denrées non périssables : pâtes, riz, conserves, etc. Tout cela nous intéresse et sera redistribué aux étudiant·es qui en ont besoin dans notre local convivial ! Les emballages doivent être intactes. Dites nous dans le formulaire de don le type de produit et la quantité.</p>
         </article>
 
         <article className="donation-type-card">
           <img src={hygieneImg} alt="Produits d’hygiène" className="donation-type-img" />
           <h3>Produits d’hygiène</h3>
-          <p>Les produits d’hygiène sont essentiels pour le bien-être de tous. Savons, dentifrice, protections hygiéniques... Aidez les étudiants en situation de précarité à avoir accès à ces produits de première nécessité. Nous récupérons tous types de produits d'hygiène, sous réserve qu'ils soient encore emballés. Précisez nous le type de produit et la quantité dans le formulaire de don en bas de la page.</p>
+          <p>Les produits d’hygiène sont essentiels pour le bien-être de tous. Savons, dentifrice, protections hygiéniques... Aidez les étudiant·es en situation de précarité à avoir accès à ces produits de première nécessité. Nous récupérons tous types de produits d'hygiène, sous réserve qu'ils soient encore emballés. Précisez nous le type de produit et la quantité dans le formulaire de don en bas de la page.</p>
         </article>
       </div>
 

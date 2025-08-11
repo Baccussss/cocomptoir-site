@@ -30,7 +30,7 @@ const PrecariteSection = () => {
             </div>
             <div className="precarite-stat">
               <span className="precarite-stat-value">41&nbsp;%</span>
-              <span className="precarite-stat-text">des étudiants déclarent se sentir souvent seul.es</span>
+              <span className="precarite-stat-text">des étudiant·es déclarent se sentir souvent seul.es</span>
             </div>
           </div>
         </div>

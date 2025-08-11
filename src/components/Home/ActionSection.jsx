@@ -22,7 +22,7 @@ const actions = [
     icon: tableIcon,
     title: 'Un lieu convivial et accueillant',
     description:
-      "Venez passer du temps dans notre local pour échanger, rencontrer et soutenir d'autres étudiants.",
+      "Venez passer du temps dans notre local pour échanger, rencontrer et soutenir d'autres étudiant·es.",
     withButton: true,
   },
 ];
