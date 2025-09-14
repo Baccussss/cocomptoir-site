@@ -84,9 +84,18 @@
   border-radius: 12px;
   border: 2px solid var(--text-dark);
   font-size: 1rem;
+  font-family: inherit;
   background: var(--white);
   color: var(--text-dark);
   transition: border-color .25s, box-shadow .25s, transform .06s;
+}
+
+/* Placeholder uniforme pour tous les champs */
+.benevole-form input::placeholder,
+.benevole-form textarea::placeholder {
+  font-family: inherit;
+  font-size: 1rem;
+  color: #999;
 }
 
 .benevole-form input:focus,

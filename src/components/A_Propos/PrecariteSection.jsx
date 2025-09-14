@@ -1,4 +1,5 @@
 import React from 'react';
+import precarite from '../../assets/bonhommes/precarite.png';
 import '../../styles/A_Propos/PrecariteSection.css';
 // import placeholder from '../../assets/images/ekip.png'; // À remplacer par la vraie image si besoin
 
@@ -7,7 +8,7 @@ const PrecariteSection = () => {
     <section className="precarite-section">
       <div className="precarite-flex">
         <div className="precarite-left">
-          <div className="precarite-img placeholder-img">Image à venir</div>
+          <img src={precarite} alt="Illustration de la précarité étudiante" className="precarite-img" />
         </div>
         <div className="precarite-right">
           <h2 className="precarite-title">

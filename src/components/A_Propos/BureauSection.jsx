@@ -51,7 +51,7 @@ const BureauSection = () => {
     <section className="bureau-section">
       <div className="bureau-header">
         <h2 className="bureau-title">Le bureau</h2>
-        <p className="bureau-subtitle">A l’initiative d’un groupe d’ami.e.s étudiant·es à l’INSA de Lyon</p>
+        <p className="bureau-subtitle">A l’initiative d’un groupe d’ami.es étudiant·es à l’INSA de Lyon</p>
       </div>
       <div className="bureau-grid">
         {membres.map((m, i) => (
