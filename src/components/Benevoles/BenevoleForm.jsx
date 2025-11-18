@@ -190,6 +190,7 @@ export default function BenevoleForm() {
           </div>
         </div>
 
+
         {/* Disponibilités */}
         <label className="field field--full">
           <span className="field-label">Disponibilités régulières</span>
