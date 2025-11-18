@@ -2,6 +2,11 @@ import React from 'react';
 /*import hamac from '../assets/bonhommes/hamac.png'; */
 import ravi from '../../assets/bonhommes/raviblanc.png'; // image décorative principale
 import '../../styles/General/Footer.css';
+import { NavLink } from 'react-router-dom';
+
+const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+};
 
 export default function Footer() {
   return (
@@ -9,7 +14,13 @@ export default function Footer() {
       <div className="footer-left">
         <div className="footer-title-row">
           <span className="footer-title">Adresse&nbsp;:</span>
-          <span className="footer-address">2 Rue Jean-Baptiste Clément, Villeurbanne</span>
+            <NavLink
+              to="/local"
+              onClick={handleLinkClick}
+              className="footer-contact"
+              >
+              2 Rue Jean-Baptiste Clément, Villeurbanne
+            </NavLink>
         </div>
         <div className="footer-title-row">
           <span className="footer-title">Contact&nbsp;:</span>
