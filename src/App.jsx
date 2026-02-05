@@ -6,6 +6,7 @@ import APropos from './pages/A_Propos';
 import Local from './pages/Local';
 import Footer from './components/General/Footer';
 import Benevole from './pages/Benevole';
+import News from './pages/News';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/about" element={<APropos />} />
         <Route path="/local" element={<Local />} />
         <Route path="/benevole" element={<Benevole />} />
+        <Route path="/news" element={<News />} />
         {/* Ajouts d'autres routes ici si besoin */}
       </Routes>
       <Footer />

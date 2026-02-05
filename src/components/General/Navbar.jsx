@@ -84,6 +84,15 @@ export default function Navbar() {
                         </li>
                         <li>
                             <NavLink
+                                to="/news"
+                                onClick={handleLinkClick}
+                                className={({ isActive }) => (isActive ? 'link active' : 'link')}
+                            >
+                                Actualités
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
                                 to="/benevole"
                                 onClick={handleLinkClick}
                                 className={({ isActive }) =>

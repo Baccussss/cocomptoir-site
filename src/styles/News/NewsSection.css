@@ -1,0 +1,106 @@
+.news-container {
+  padding: var(--spacing-xl) var(--spacing-m);
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; /* Ajoutez cette ligne */
+}
+
+.news-title {
+  font-size: var(--font-size-title);
+  font-family: var(--font-title);
+  margin-bottom: var(--spacing-l);
+  text-align: center;
+}
+
+.news-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-l);
+  max-height: 600px;
+  overflow-y: auto;
+  padding: var(--spacing-m);
+}
+
+.news-card {
+  background: var(--white);
+  padding: var(--spacing-m);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.news-date {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-s);
+}
+
+/* Décoration du bonhomme blabla */
+.news-decoration {
+  position: absolute;
+  top: 18%;
+  right: 5%; /* Changé de left à right pour mieux voir */
+  width: 100px; /* Taille fixe en pixels */
+  height: auto;
+  z-index: 1;
+  pointer-events: none; /* Pour ne pas bloquer les clics */
+}
+
+.news-decoration img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*pour les boutons dans les articles*/
+.news-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-dark);
+  background: var(--primary-yellow);
+  border: 2px solid var(--text-dark);
+  border-radius: var(--radius-l);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0 var(--text-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.news-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--text-dark);
+  background: linear-gradient(
+    90deg,
+    var(--primary-yellow) 0%,
+    var(--secondary-orange) 50%,
+    var(--primary-yellow) 100%
+  );
+  background-size: 200% 100%;
+  animation: news-gradient-sweep 3s ease infinite;
+}
+
+.news-button:focus-visible {
+  outline: 3px solid var(--primary-yellow);
+  outline-offset: 4px;
+}
+
+@keyframes news-gradient-sweep {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

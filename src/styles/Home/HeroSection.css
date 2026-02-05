@@ -102,8 +102,9 @@
 /* ===== Boutons ===== */
 .hero-buttons {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
+  text-align: center;
   gap: var(--spacing-m);
   margin-top: var(--spacing-m);
   position: relative;
@@ -224,7 +225,7 @@
 .hero-decoration {
   position: absolute;
   bottom: 0.2rem;
-  left: 40%;
+  left: 42%;
   transform: translateX(-50%);
   width: 145px;
   height: auto;

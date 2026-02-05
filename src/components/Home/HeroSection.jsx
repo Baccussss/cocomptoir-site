@@ -26,10 +26,11 @@ const HeroSection = () => {
                     CoComptoir, une association pour les étudiant·es !
                 </h1>
                 <p className="hero-description">
-                    Nous luttons contre la précarité étudiante en offrant un accès à des produits essentiels dans notre local convivial ! <br></br> On ouvre tous les jeudis et dimanches de 13h à 17h !
+                    Nous luttons contre la précarité étudiante en offrant un accès à des produits essentiels dans notre local convivial ! <br></br> On ouvre tous les jeudis et dimanches de 13h à 15h !
 
                 </p>
                 <div className="hero-buttons">
+                    <Link to="/local" className="hero-button">Venir au Local</Link>
                     <Link to="/benevole" className="hero-button">Devenir Bénévole</Link>
                     <Link to="/donate" className="hero-button">Faire un Don</Link>
                 </div>
