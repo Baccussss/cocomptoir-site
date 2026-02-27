@@ -1,7 +1,10 @@
 import React from 'react';
 
+import affiche from '../../../assets/articles/2026_02_04_repas_partage.jpg';
+
+
 export const metadata = {
-  date: '2026-02-04',
+  date: '2026_02_04',
   title: 'Repas partagée le 8 mars 2026 !',
   description: 'Le CoComptoir organise un repas partagé le dimanche 8 mars 2026 ',
 };
@@ -16,12 +19,17 @@ export default function Article_2026_02_04() {
                 le contenu
        */}
       <p>
-        Le 8 mars, le CoComptoir vous ouvre ses portes pour une journée permanence avec un Repas partagé ! <br /><br/>
-        Le concept ?<br />
-        <strong>Pas besoin</strong> de cuisiner à l'avance ou de ramener vos plats : on ramène les produits et on cuisine tous ! <br/>
-        Que vous soyez un chef en herbe ou simplement là pour la convivialité, vous êtes les bienvenus pour préparer le repas et le déguster dans la foulée.<br/><br/>
-        La donnerie sera également ouverte pendant la permanence !<br/><br/>
-        Pour plus d'informations et pour vous <strong>inscrire </strong>cliquer sur le lien juste en dessous !<br/><br/>
+        Le 8 mars, le CoComptoir vous ouvre ses portes pour une journée permanence avec un Repas partagé ! <br /> <br />
+        <span style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
+          <img src={affiche} style={{ maxWidth: '100%', width: '20%', minWidth: '150px' }} alt="Repas partagé CoComptoir" />
+          <span style={{ maxWidth: '50%', textAlign: 'justify', minWidth: '250px' }}>
+            Le concept ?<br />
+            <strong>Pas besoin</strong> de cuisiner à l'avance ou de ramener vos plats : on ramène les produits et on cuisine tous ! <br/><br/>
+            Que vous soyez un chef en herbe ou simplement là pour la convivialité, vous êtes les bienvenus pour préparer le repas et le déguster dans la foulée.<br/><br/>
+            La donnerie sera également ouverte pendant la permanence !<br/><br/>
+            Pour plus d'informations et pour vous <strong>inscrire </strong>cliquer sur le lien juste en dessous !<br/><br/>
+          </span>
+        </span>
       </p>
       <div style={{ textAlign: 'center', marginTop: '1rem' }}>
       <a 

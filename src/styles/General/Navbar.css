@@ -170,13 +170,13 @@
 }
 
 /* =================== Responsive =================== */
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1250px) {
   .navbar-image img {
     display: none;
   }
 }
 
-@media screen and (max-width: 965px) {
+@media screen and (max-width: 1095px) {
   .navbar-links {
     position: absolute;
     top: 100%;

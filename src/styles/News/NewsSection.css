@@ -35,8 +35,9 @@
 }
 
 .news-date {
-  color: var(--text-light);
+  color: grey;
   font-size: 0.9rem;
+  font-style: italic;
   margin-bottom: var(--spacing-s);
 }
 
